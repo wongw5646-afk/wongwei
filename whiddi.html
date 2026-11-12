@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Whiddi · Wei Yi Wong</title>
+  <meta name="description" content="Whiddi: a pot clip that whistles when the water boils, designed for a visually impaired young cook. By Wei Yi Wong.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400..700&family=Nunito:ital,wght@0,400..800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="case whiddi-page">
+  <a class="skip-link" href="#background">Skip to the project</a>
+
+  <!-- Turns white photo backgrounds see-through and brightens the models -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <filter id="cutout" color-interpolation-filters="sRGB">
+      <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  -6.4 -6.4 -6.4 18.7 0"/>
+      <feComponentTransfer>
+        <feFuncR type="linear" slope="1.12" intercept="0.02"/>
+        <feFuncG type="linear" slope="1.12" intercept="0.02"/>
+        <feFuncB type="linear" slope="1.12" intercept="0.02"/>
+      </feComponentTransfer>
+    </filter>
+    <!-- Fills in faded grey foam (darkens the pale parts), then removes the white background -->
+    <filter id="solid" color-interpolation-filters="sRGB" x="0" y="0" width="1" height="1">
+      <!-- 1. darken the pale greys so faded foam looks solid -->
+      <feComponentTransfer in="SourceGraphic" result="tone">
+        <feFuncR type="gamma" amplitude="1" exponent="1.8" offset="0"/>
+        <feFuncG type="gamma" amplitude="1" exponent="1.8" offset="0"/>
+        <feFuncB type="gamma" amplitude="1" exponent="1.8" offset="0"/>
+      </feComponentTransfer>
+      <!-- 2. only pure white counts as background, so bright highlights on the foam stay solid -->
+      <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  -22.2 -22.2 -22.2 66.3 0" result="shape"/>
+      <!-- 3. fill tiny specks, then trim a hair off the outline so no white rim is left -->
+      <feMorphology in="shape" operator="erode" radius="4" result="open1"/>
+      <feMorphology in="open1" operator="dilate" radius="4" result="open2"/>
+      <feMorphology in="open2" operator="dilate" radius="2" result="grow"/>
+      <feMorphology in="grow" operator="erode" radius="3" result="trim"/>
+      <!-- 4. keep the model and brighten it a touch -->
+      <feComposite in="tone" in2="trim" operator="in" result="cut"/>
+      <feComponentTransfer in="cut">
+        <feFuncR type="linear" slope="1.2" intercept="0.04"/>
+        <feFuncG type="linear" slope="1.2" intercept="0.04"/>
+        <feFuncB type="linear" slope="1.2" intercept="0.04"/>
+      </feComponentTransfer>
+    </filter>
+  </svg>
+
+  <!-- ============ HERO ============ -->
+  <header class="case-hero">
+    <img class="case-hero-img wh-hero-img" src="images-web/whiddi/screenshot-2026-08-24-at-11-26-13-pm.jpg" alt="Render of Whiddi, a red duck-like clip, on the rim of a steaming pot with a glass lid">
+
+    <div class="topbar">
+      <a class="logo" href="index.html" aria-label="Wei Yi Wong, home">WW</a>
+      <nav class="nav" aria-label="Main">
+        <a class="btn ghost" href="index.html">Home</a>
+        <a class="btn ghost" href="projects.html" aria-current="page">Projects</a>
+        <a class="btn ghost" href="about.html">About me</a>
+        <a class="btn ghost" href="contact.html">Contact</a>
+      </nav>
+    </div>
+
+    <div class="case-burst" aria-hidden="true">
+      <div class="burst">
+        <svg viewBox="0 0 100 100"><path d="M50.0 0.0 L58.9 11.0 L71.7 5.0 L73.1 21.1 L89.1 18.8 L86.0 32.6 L98.7 38.9 L87.0 50.0 L98.7 61.1 L86.0 67.4 L89.1 81.2 L73.1 78.9 L71.7 95.0 L58.9 89.0 L50.0 100.0 L41.8 86.1 L28.3 95.0 L25.1 81.3 L10.9 81.2 L16.7 66.1 L1.3 61.1 L10.0 50.0 L1.3 38.9 L16.7 33.9 L10.9 18.8 L25.1 18.7 L28.3 5.0 L41.8 13.9Z"/></svg>
+        <span>01</span>
+      </div>
+    </div>
+    <h1 class="case-title">Whiddi</h1>
+    <p class="case-sub">A pot clip that whistles when the water boils.</p>
+  </header>
+
+  <main>
+    <!-- ============ 01 BACKGROUND ============ -->
+    <section class="case-section" id="background" aria-labelledby="h-bg">
+      <h2 class="case-h" id="h-bg"><span class="num">01</span>Background</h2>
+      <div class="wh-bg">
+        <div class="wh-bg-text">
+          <p><strong>Problem:</strong> Creating a user-centered product that solves a problem in a specific user process.</p>
+          <p>We found a boy named Logan Tyler, who is fourteen years old. He is visually impaired and needs a guide dog to escort him. He mainly reads in Braille and has problems making friends.</p>
+          <div class="wh-persona">
+            <!-- PERSONA PHOTO: delete this <img> line if you'd rather not show a face -->
+            <img class="wh-persona-img" src="images-web/whiddi/wh-persona.jpg" alt="Persona photo of Logan, a smiling boy with short dark hair">
+            <dl class="wh-facts">
+              <div><dt>Name:</dt> <dd>Logan Tyler</dd></div>
+              <div><dt>Age:</dt> <dd>14</dd></div>
+              <div><dt>Difficulties:</dt> <dd>Reading, writing</dd></div>
+              <div><dt>Disability:</dt> <dd>Unable to see near and far, with blurred vision due to retinal disease.</dd></div>
+            </dl>
+          </div>
+        </div>
+        <div class="case-panel wh-blur">
+          <figure>
+            <figcaption>Blurry</figcaption>
+            <button class="zoom" type="button" data-cap="How a stove knob looks with Logan's blurred vision"><img src="images-web/whiddi/wh-blurry.jpg" alt="A blurred photo of a stove knob, showing low vision" loading="lazy"></button>
+          </figure>
+          <figure>
+            <figcaption>Not Blurry</figcaption>
+            <button class="zoom" type="button" data-cap="The same stove knob in focus"><img src="images-web/whiddi/wh-notblurry.jpg" alt="The same stove knob in focus, with its numbers readable" loading="lazy"></button>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 02 TASK ANALYSIS ============ -->
+    <section class="case-section" aria-labelledby="h-task">
+      <h2 class="case-h" id="h-task"><span class="num">02</span>Task Analysis</h2>
+      <div class="wh-task">
+        <div class="wh-task-text">
+          <p><strong>Process:</strong></p>
+          <p>I was tasked with working with a partner to make pasta as Logan. We were asked to understand and picture ourselves as a person who can’t see normally.</p>
+          <p>For our task analysis, my partner and I made pasta. By doing so, we put on glasses and rubbed glue all over them to see what it would be like to have little to no vision.</p>
+        </div>
+        <div class="case-panel wh-chart">
+          <button class="zoom" type="button" data-cap="Task analysis: every step of making pasta, with the difficult steps in pink"><img src="images-web/whiddi/wh-taskchart.jpg" alt="Task analysis chart: ten steps of making pasta, with turning on the stove, waiting for the pasta to boil, turning off the stove and pouring sauce marked as difficulties" loading="lazy"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 03 IDEATION ============ -->
+    <section class="case-section" aria-labelledby="h-idea">
+      <h2 class="case-h" id="h-idea"><span class="num">03</span>Ideation</h2>
+      <div class="case-three wh-ideas">
+        <div>
+          <h3 class="case-col-title">Wait for pasta to boil (Whistling)</h3>
+          <button class="zoom card" type="button" data-cap="Wait for pasta to boil: whistling ideas"><img src="images-web/whiddi/wh-idea-whistle.jpg" alt="Sketches of whistling ideas: a clip that beeps when the water boils, a charging stand and octopus whistles" loading="lazy"></button>
+        </div>
+        <div>
+          <h3 class="case-col-title">Turning off the stove (Clicking)</h3>
+          <button class="zoom card" type="button" data-cap="Turning off the stove: clicking dial ideas"><img src="images-web/whiddi/wh-idea-click.jpg" alt="Sketches of clicking stove dials with sensors, buzzers and red, green, yellow markings" loading="lazy"></button>
+        </div>
+        <div>
+          <h3 class="case-col-title">Pour sauce on pasta (Portion size)</h3>
+          <button class="zoom card" type="button" data-cap="Pour sauce on pasta: portion size ideas"><img src="images-web/whiddi/wh-idea-portion.jpg" alt="Sketches of stacking portion containers and flip bottles for measuring sauce" loading="lazy"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 04 PROTOTYPING 1 ============ -->
+    <section class="case-section" aria-labelledby="h-proto1">
+      <h2 class="case-h" id="h-proto1"><span class="num">04</span>Prototyping 1</h2>
+      <h3 class="wh-sub">CAD Models</h3>
+      <div class="case-panel wh-cad">
+        <button class="zoom" type="button" data-cap="CAD models: ten ways to attach a whistle to a pot"><img src="images-web/whiddi/tight-cad.jpg" alt="Ten grey CAD models of pot clips, lids and cages" loading="lazy"></button>
+      </div>
+      <p class="wh-note">I decided on the design “waiting for pasta to boil.” I wanted to create a whistling buddy for Logan that is useful when the water boils. Since he has a hard time seeing, having a whistle buddy means he can hear the sound of the water boiling.</p>
+
+      <h3 class="wh-sub wh-sub-gap">Foam Model</h3>
+      <div class="wh-three">
+         Foam model: whistle bulb with finger grips"><img src="images-web/whiddi/upright-img-2345.jpg" alt="Grey foam model of a whistle bulb with finger grips on a curved clip" loading="lazy"></button>
+         Foam model: pot lid that looks like a kettle"><img src="images-web/whiddi/upright-img-2347.jpg" alt="Grey foam model of a round pot lid with a knob and spout, like a kettle" loading="lazy"></button>
+         Foam model: clip-on whistle creature"><img src="images-web/whiddi/tight-img-2346.jpg" alt="Grey foam model of a curly creature clipped onto a pot rim" loading="lazy"></button>
+      </div>
+      <p class="wh-note">I designed ten ideas based on the whistling of a kettle. I made a few CAD models: clip-ons for the side of each pot, a pot lid that resembles a kettle, and a few other whistles that can be used with or without the lid.</p>
+    </section>
+
+    <!-- ============ 05 PROTOTYPING 2 ============ -->
+    <section class="case-section" aria-labelledby="h-proto2">
+      <h2 class="case-h" id="h-proto2"><span class="num">05</span>Prototyping 2</h2>
+      <h3 class="wh-sub">Foam and Obo model</h3>
+      <div class="wh-three case-paper wh-paper3">
+        <button class="zoom" type="button" data-cap="Foam model: clip with a tail hook"><img src="images-web/whiddi/tight-img-2361.jpg" alt="Grey foam model of the whistle character clipped to a pot rim" loading="lazy"></button>
+        <button class="zoom" type="button" data-cap="Obo model: flat profile study"><img src="images-web/whiddi/tight-img-2367.jpg" alt="Grey Obo model of the flat character profile with a long hook" loading="lazy"></button>
+        <button class="zoom" type="button" data-cap="Obo model: refined character with an eye and a smile"><img src="images-web/whiddi/tight-fullsizerender.jpg" alt="Grey Obo model of the refined character with an eye, a smile and a curled hook" loading="lazy"></button>
+      </div>
+    </section>
+
+    <!-- ============ 06 HOW DOES IT WORK ============ -->
+    <section class="case-section" aria-labelledby="h-how">
+      <h2 class="case-h" id="h-how"><span class="num">06</span>How does it work?</h2>
+      <div class="wh-how">
+        <button class="zoom cutout" type="button" data-cap="The two printed halves, showing the steam channel"><img src="images-web/whiddi/tight-img-2494.jpg" alt="The two red printed halves of Whiddi, opened to show the steam channel inside" loading="lazy"></button>
+        <button class="zoom cutout" type="button" data-cap="Cutaway render of the steam channel"><img src="images-web/whiddi/tight-screenshot-2026-10-02-at-9-29-56-am.jpg" alt="Red cutaway render of Whiddi with the steam channel and a wooden ball inside" loading="lazy"></button>
+        <div class="case-panel">
+          <button class="zoom" type="button" data-cap="Storyboard: clip Whiddi onto the pot, and it whistles when the water boils"><img src="images-web/whiddi/untitled-artwork-2.jpg" alt="Storyboard: a hand clips Whiddi onto a pot of water, then the water boils and Whiddi whistles" loading="lazy"></button>
+        </div>
+      </div>
+      <p class="wh-note">Place the whiddi onto the pot like a clip, and wait for the water to boil; then it will start whistling.</p>
+    </section>
+
+    <!-- ============ 07 FINAL MODEL ============ -->
+    <section class="case-section" aria-labelledby="h-final">
+      <h2 class="case-h" id="h-final"><span class="num">07</span>Final Model</h2>
+      <div class="wh-final">
+        <div class="wh-grid4">
+          <button class="zoom card" type="button" data-cap="Whiddi on an open pot of boiling pasta"><img src="images-web/whiddi/wh-final-1.jpg" alt="Render of Whiddi on the rim of an open pot of boiling pasta" loading="lazy"></button>
+          <button class="zoom card" type="button" data-cap="Side view: Whiddi hooked over the rim"><img src="images-web/whiddi/wh-final-2.jpg" alt="Side view render of Whiddi hooked over the rim of a dark pot" loading="lazy"></button>
+          <button class="zoom card" type="button" data-cap="Whiddi on a pot with a glass lid"><img src="images-web/whiddi/wh-final-3.jpg" alt="Render of Whiddi on a pot with a glass lid" loading="lazy"></button>
+          <button class="zoom card" type="button" data-cap="Whiddi peeking over the lid"><img src="images-web/whiddi/wh-final-4.jpg" alt="Side render of Whiddi peeking over the edge of a lidded pot" loading="lazy"></button>
+        </div>
+        <div class="wh-final-right">
+          <button class="zoom cutout wh-red" type="button" data-cap="Final form, rendered"><img src="images-web/whiddi/tight-screenshot-2026-10-05-at-12-59-49-pm.jpg" alt="Render of the final red Whiddi character" loading="lazy"></button>
+          <button class="zoom cutout wh-hand" type="button" data-cap="Whiddi in hand"><img src="images-web/whiddi/tight-dd.jpg" alt="The final red Whiddi held in a hand" loading="lazy"></button>
+        </div>
+      </div>
+    </section>
+
+    <nav class="case-end" aria-label="More projects">
+      <a class="btn ghost" href="projects.html">← All projects</a>
+      <a class="btn accent" id="nextProject" href="projects.html">Next project →</a>
+    </nav>
+  </main>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button class="lb-btn lb-close" type="button" aria-label="Close image viewer">✕</button>
+    <button class="lb-btn lb-prev" type="button" aria-label="Previous image">←</button>
+    <figure>
+      <img id="lbImg" alt="">
+      <figcaption><span class="lb-count" id="lbCount"></span><span id="lbCaption"></span></figcaption>
+    </figure>
+    <button class="lb-btn lb-next" type="button" aria-label="Next image">→</button>
+  </div>
+
+  <script src="js/projects.js"></script>
+  <script src="js/case.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/editor.js"></script>
+  <script src="js/nav.js"></script>
+</body>
+</html>

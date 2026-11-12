@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wei Yi Wong · Industrial Design</title>
+  <meta name="description" content="Industrial design portfolio of Wei Yi Wong, Wentworth Institute of Technology.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400..700&family=Nunito:ital,wght@0,400..800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="home">
+  <a class="skip-link" href="projects.html">Skip to projects</a>
+
+  <header class="topbar">
+    <a class="logo" href="index.html" aria-label="Wei Yi Wong, home">WW</a>
+    <nav class="nav" aria-label="Main">
+      <a class="btn ghost" href="index.html" aria-current="page">Home</a>
+      <a class="btn ghost" href="projects.html">Projects</a>
+      <a class="btn ghost" href="about.html">About me</a>
+      <a class="btn ghost" href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-label="Introduction">
+      <div class="hero-text">
+        <h1>Wei Yi Wong</h1>
+        <p class="subtitle">Industrial design portfolio. Poke a colourful worm to see a project.</p>
+      </div>
+
+      <!-- blobs are added here by js/blobs.js -->
+      <div class="blob-stage" id="blobStage"></div>
+
+      <div class="poke" aria-hidden="true">
+        <div class="burst">
+          <svg viewBox="0 0 100 100"><path d="M50.0 0.0 L58.9 11.0 L71.7 5.0 L73.1 21.1 L89.1 18.8 L86.0 32.6 L98.7 38.9 L87.0 50.0 L98.7 61.1 L86.0 67.4 L89.1 81.2 L73.1 78.9 L71.7 95.0 L58.9 89.0 L50.0 100.0 L41.8 86.1 L28.3 95.0 L25.1 81.3 L10.9 81.2 L16.7 66.1 L1.3 61.1 L10.0 50.0 L1.3 38.9 L16.7 33.9 L10.9 18.8 L25.1 18.7 L28.3 5.0 L41.8 13.9Z"/></svg>
+          <span>poke a worm!</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/projects.js"></script>
+  <script src="js/blobs.js"></script>
+  <script src="js/nav.js"></script>
+</body>
+</html>

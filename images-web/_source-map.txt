@@ -1,0 +1,79 @@
+Whiddi Project 1/FullSizeRender.png -> images-web/whiddi/fullsizerender.jpg
+Whiddi Project 1/IMG_2345.png -> images-web/whiddi/img-2345.jpg
+Whiddi Project 1/IMG_2346.png -> images-web/whiddi/img-2346.jpg
+Whiddi Project 1/IMG_2347.png -> images-web/whiddi/img-2347.jpg
+Whiddi Project 1/IMG_2361.png -> images-web/whiddi/img-2361.jpg
+Whiddi Project 1/IMG_2367.png -> images-web/whiddi/img-2367.jpg
+Whiddi Project 1/IMG_2494.png -> images-web/whiddi/img-2494.jpg
+Whiddi Project 1/Screenshot 2026-08-24 at 11.26.13 PM.png -> images-web/whiddi/screenshot-2026-08-24-at-11-26-13-pm.jpg
+Whiddi Project 1/Screenshot 2026-08-24 at 9.37.22 PM.png -> images-web/whiddi/screenshot-2026-08-24-at-9-37-22-pm.jpg
+Whiddi Project 1/Screenshot 2026-08-24 at 9.53.59 PM.png -> images-web/whiddi/screenshot-2026-08-24-at-9-53-59-pm.jpg
+Whiddi Project 1/Screenshot 2026-08-24 at 9.59.34 PM.png -> images-web/whiddi/screenshot-2026-08-24-at-9-59-34-pm.jpg
+Whiddi Project 1/Screenshot 2026-10-03 at 2.17.38 PM.png -> images-web/whiddi/screenshot-2026-10-03-at-2-17-38-pm.jpg
+Whiddi Project 1/Screenshot 2026-10-05 at 12.59.49 PM.png -> images-web/whiddi/screenshot-2026-10-05-at-12-59-49-pm.jpg
+Whiddi Project 1/Screenshot 2026-11-08 at 5.42.37 PM.png -> images-web/whiddi/screenshot-2026-11-08-at-5-42-37-pm.jpg
+Whiddi Project 1/Screenshot 2026-11-08 at 5.42.59 PM.png -> images-web/whiddi/screenshot-2026-11-08-at-5-42-59-pm.jpg
+Whiddi Project 1/Screenshot 2026-11-08 at 5.44.37 PM.png -> images-web/whiddi/screenshot-2026-11-08-at-5-44-37-pm.jpg
+Whiddi Project 1/Screenshot 2026-11-08 at 5.44.47 PM.png -> images-web/whiddi/screenshot-2026-11-08-at-5-44-47-pm.jpg
+Whiddi Project 1/Screenshot_2026-10-02_at_9.29.56 AM.png -> images-web/whiddi/screenshot-2026-10-02-at-9-29-56-am.jpg
+Whiddi Project 1/Untitled_Artwork 2.png -> images-web/whiddi/untitled-artwork-2.jpg
+Whiddi Project 1/Untitled_Artwork.png -> images-web/whiddi/untitled-artwork.jpg
+Whiddi Project 1/dd.png -> images-web/whiddi/dd.jpg
+Tooth Fairy Project 2/FullSizeRender 2.heic -> images-web/tooth-fairy/fullsizerender-2.jpg
+Tooth Fairy Project 2/FullSizeRender 3.heic -> images-web/tooth-fairy/fullsizerender-3.jpg
+Tooth Fairy Project 2/FullSizeRender 4.heic -> images-web/tooth-fairy/fullsizerender-4.jpg
+Tooth Fairy Project 2/FullSizeRender.heic -> images-web/tooth-fairy/fullsizerender.jpg
+Tooth Fairy Project 2/IMG_0039.png -> images-web/tooth-fairy/img-0039.jpg
+Tooth Fairy Project 2/IMG_0040.png -> images-web/tooth-fairy/img-0040.jpg
+Tooth Fairy Project 2/Screenshot 2026-02-01 at 2.59.27 PM.png -> images-web/tooth-fairy/screenshot-2026-02-01-at-2-59-27-pm.jpg
+Tooth Fairy Project 2/Screenshot 2026-02-01 at 2.59.36 PM.png -> images-web/tooth-fairy/screenshot-2026-02-01-at-2-59-36-pm.jpg
+Tooth Fairy Project 2/Screenshot 2026-02-03 at 4.01.00 PM.png -> images-web/tooth-fairy/screenshot-2026-02-03-at-4-01-00-pm.jpg
+Tooth Fairy Project 2/Screenshot 2026-09-30 at 8.19.53 AM.png -> images-web/tooth-fairy/screenshot-2026-09-30-at-8-19-53-am.jpg
+Tooth Fairy Project 2/Screenshot 2026-09-30 at 8.23.35 AM.png -> images-web/tooth-fairy/screenshot-2026-09-30-at-8-23-35-am.jpg
+Tooth Fairy Project 2/Screenshot 2026-10-08 at 1.06.30 PM.png -> images-web/tooth-fairy/screenshot-2026-10-08-at-1-06-30-pm.jpg
+Tooth Fairy Project 2/Screenshot 2026-11-08 at 5.37.56 PM.png -> images-web/tooth-fairy/screenshot-2026-11-08-at-5-37-56-pm.jpg
+Tooth Fairy Project 2/Untitled_Artwork 4.png -> images-web/tooth-fairy/untitled-artwork-4.jpg
+Tooth Fairy Project 2/tooth1.pdf -> images-web/tooth-fairy/tooth1.jpg
+Tooth Fairy Project 2/tooth2.pdf -> images-web/tooth-fairy/tooth2.jpg
+Tooth Fairy Project 2/toothy 2.0.7.jpg -> images-web/tooth-fairy/toothy-2-0-7.jpg
+Tooth Fairy Project 2/toothy 2.0.8.jpg -> images-web/tooth-fairy/toothy-2-0-8.jpg
+Tooth Fairy Project 2/toothyyyy.3.jpg -> images-web/tooth-fairy/toothyyyy-3.jpg
+Vessel Project 3/20E561E8-2DBF-499F-8D39-2B810354EC3E.png -> images-web/vessel/20e561e8-2dbf-499f-8d39-2b810354ec3e.jpg
+Vessel Project 3/4FAEAA75-E74F-4F30-A3AC-DCC6FBE96842.png -> images-web/vessel/4faeaa75-e74f-4f30-a3ac-dcc6fbe96842.jpg
+Vessel Project 3/IMG_4117.png -> images-web/vessel/img-4117.jpg
+Vessel Project 3/IMG_4130.jpg -> images-web/vessel/img-4130.jpg
+Vessel Project 3/IMG_4131.jpg -> images-web/vessel/img-4131.jpg
+Vessel Project 3/IMG_4132.png -> images-web/vessel/img-4132.jpg
+Vessel Project 3/IMG_4133.png -> images-web/vessel/img-4133.jpg
+Vessel Project 3/IMG_4134.png -> images-web/vessel/img-4134.jpg
+Vessel Project 3/Screenshot 2026-10-01 at 8.27.09 PM.png -> images-web/vessel/screenshot-2026-10-01-at-8-27-09-pm.jpg
+Vessel Project 3/Screenshot 2026-10-01 at 8.29.16 PM.png -> images-web/vessel/screenshot-2026-10-01-at-8-29-16-pm.jpg
+Vessel Project 3/Screenshot 2026-10-01 at 8.32.24 PM.png -> images-web/vessel/screenshot-2026-10-01-at-8-32-24-pm.jpg
+Vessel Project 3/Screenshot 2026-10-01 at 8.36.02 PM.png -> images-web/vessel/screenshot-2026-10-01-at-8-36-02-pm.jpg
+Vessel Project 3/Screenshot 2026-10-01 at 8.40.31 PM.png -> images-web/vessel/screenshot-2026-10-01-at-8-40-31-pm.jpg
+Vessel Project 3/Screenshot 2026-10-01 at 8.45.22 PM.png -> images-web/vessel/screenshot-2026-10-01-at-8-45-22-pm.jpg
+Vessel Project 3/Screenshot 2026-10-01 at 8.48.34 PM.png -> images-web/vessel/screenshot-2026-10-01-at-8-48-34-pm.jpg
+Vessel Project 3/Screenshot 2026-10-01 at 8.55.18 PM.png -> images-web/vessel/screenshot-2026-10-01-at-8-55-18-pm.jpg
+Vessel Project 3/Screenshot 2026-10-01 at 8.57.21 PM.png -> images-web/vessel/screenshot-2026-10-01-at-8-57-21-pm.jpg
+Vessel Project 3/Screenshot 2026-10-01 at 9.23.35 PM.png -> images-web/vessel/screenshot-2026-10-01-at-9-23-35-pm.jpg
+Dugong Project 4/78509887587__D481AF84-3CAA-44C5-8460-A2E4F21DBCB8.heic -> images-web/dugong/78509887587-d481af84-3caa-44c5-8460-a2e4f21dbcb8.jpg
+Dugong Project 4/78509898806__F30134FE-389E-4F83-8AC0-C034BA2AFC05.heic -> images-web/dugong/78509898806-f30134fe-389e-4f83-8ac0-c034ba2afc05.jpg
+Dugong Project 4/IMG_1334.HEIC -> images-web/dugong/img-1334.jpg
+Dugong Project 4/IMG_1336.HEIC -> images-web/dugong/img-1336.jpg
+Dugong Project 4/IMG_1339.HEIC -> images-web/dugong/img-1339.jpg
+Dugong Project 4/IMG_1340.HEIC -> images-web/dugong/img-1340.jpg
+Dugong Project 4/IMG_1350.HEIC -> images-web/dugong/img-1350.jpg
+Dugong Project 4/IMG_1352.heic -> images-web/dugong/img-1352.jpg
+Dugong Project 4/IMG_1355.HEIC -> images-web/dugong/img-1355.jpg
+Dugong Project 4/IMG_1356.HEIC -> images-web/dugong/img-1356.jpg
+Dugong Project 4/IMG_1360.HEIC -> images-web/dugong/img-1360.jpg
+Dugong Project 4/IMG_1361.HEIC -> images-web/dugong/img-1361.jpg
+Dugong Project 4/IMG_1362.HEIC -> images-web/dugong/img-1362.jpg
+Dugong Project 4/IMG_1363.HEIC -> images-web/dugong/img-1363.jpg
+Dugong Project 4/IMG_1364.HEIC -> images-web/dugong/img-1364.jpg
+Dugong Project 4/IMG_1375.HEIC -> images-web/dugong/img-1375.jpg
+Dugong Project 4/IMG_1379.HEIC -> images-web/dugong/img-1379.jpg
+Dugong Project 4/IMG_1380.HEIC -> images-web/dugong/img-1380.jpg
+Dugong Project 4/IMG_1452.HEIC -> images-web/dugong/img-1452.jpg
+Dugong Project 4/IMG_1483.HEIC -> images-web/dugong/img-1483.jpg
+Dugong Project 4/IMG_1654.HEIC -> images-web/dugong/img-1654.jpg

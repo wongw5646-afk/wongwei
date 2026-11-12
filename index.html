@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wei Yi Wong · Industrial Design</title>
+  <meta name="description" content="Industrial design portfolio of Wei Yi Wong, Wentworth Institute of Technology. Every leaf on the tree is a project.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Fredoka:wght@400..700&family=Nunito:ital,wght@0,400..800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/tree.css">
+</head>
+<body class="home tree-home">
+  <a class="skip-link" href="projects.html">Skip to projects</a>
+
+  <header class="topbar">
+    <a class="logo" href="index.html" aria-label="Wei Yi Wong, home">WW</a>
+    <nav class="nav" aria-label="Main">
+      <a class="btn ghost" href="index.html" aria-current="page">Home</a>
+      <a class="btn ghost" href="projects.html">Projects</a>
+      <a class="btn ghost" href="about.html">About me</a>
+      <a class="btn ghost" href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="t-stage">
+    <!-- left: intro, then the big project number that changes with each leaf -->
+    <section class="t-text" aria-label="Introduction">
+      <h1 class="t-name">Wei Yi Wong</h1>
+      <p class="t-kicker">Industrial Design Portfolio</p>
+
+      <div class="t-label" id="tLabel" aria-live="polite">
+        <div class="t-num" id="tNum"><span class="u">_</span>00</div>
+        <h2 class="t-title" id="tTitle">projects growing</h2>
+        <p class="t-tag" id="tTag">Hover a leaf with eyes to peek inside.</p>
+        <a class="t-go" id="tGo" href="projects.html">See all projects →</a>
+      </div>
+    </section>
+
+    <!-- right: the tree -->
+    <div class="t-tree-wrap">
+      <div class="t-glow" aria-hidden="true"></div>
+      <div class="t-tree" id="tTree">
+        <div class="t-trunk" aria-hidden="true">
+          <span class="deco-worm" data-len="3" data-cell="20"></span>
+        </div>
+        <!-- leaves are added here by js/tree.js -->
+        <div class="t-canopy" id="tCanopy"></div>
+      </div>
+      <div class="t-ground" aria-hidden="true"></div>
+    </div>
+  </main>
+
+  <script src="js/projects.js"></script>
+  <script src="js/tree.js"></script>
+  <script src="js/worm-deco.js"></script>
+  <script src="js/nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects · Wei Yi Wong</title>
+  <meta name="description" content="Industrial design projects by Wei Yi Wong.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400..700&family=Nunito:ital,wght@0,400..800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="projects-page">
+  <a class="skip-link" href="#projectGrid">Skip to projects</a>
+
+  <header class="topbar">
+    <a class="logo" href="index.html" aria-label="Wei Yi Wong, home">WW</a>
+    <nav class="nav" aria-label="Main">
+      <a class="btn ghost" href="index.html">Home</a>
+      <a class="btn ghost" href="projects.html" aria-current="page">Projects</a>
+      <a class="btn ghost" href="about.html">About me</a>
+      <a class="btn ghost" href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="page-head">
+      <h1>Projects</h1>
+      <p>Pick one to see how it grew, from first sketch to final design.</p>
+    </div>
+    <section class="section" aria-label="All projects">
+      <!-- cards are made from js/projects.js -->
+      <div class="project-grid" id="projectGrid"></div>
+    </section>
+  </main>
+
+  <script src="js/projects.js"></script>
+  <script>
+    (function () {
+      var grid = document.getElementById("projectGrid");
+      PROJECTS.forEach(function (p, i) {
+        var a = document.createElement("a");
+        a.className = "p-card";
+        a.href = projectLink(p);
+        a.innerHTML =
+          '<span class="peek" aria-hidden="true"><i></i><i></i></span>' +
+          '<div class="thumb"><img loading="lazy" alt=""></div>' +
+          '<span class="num">' + String(i + 1).padStart(2, "0") + "</span>" +
+          "<h3></h3><p></p>";
+        var img = a.querySelector("img");
+        img.src = projectImg(p, p.thumb);
+        img.alt = p.title + " preview";
+        img.style.objectPosition = p.thumbFocus || "50% 50%";
+        a.querySelector("h3").textContent = p.title;
+        a.querySelector("p").textContent = p.tagline;
+        grid.appendChild(a);
+      });
+    })();
+  </script>
+  <script src="js/nav.js"></script>
+</body>
+</html>

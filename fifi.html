@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FIFI · Wei Yi Wong</title>
+  <meta name="description" content="FIFI: a tooth fairy keepsake about memory and time, by Wei Yi Wong.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400..700&family=Nunito:ital,wght@0,400..800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="case">
+  <a class="skip-link" href="#overview">Skip to the project</a>
+
+  <!-- Turns the white background of the foam photos see-through and brightens them -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <filter id="cutout" color-interpolation-filters="sRGB">
+      <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  -6.4 -6.4 -6.4 18.7 0"/>
+      <feComponentTransfer>
+        <feFuncR type="linear" slope="1.22" intercept="0.04"/>
+        <feFuncG type="linear" slope="1.22" intercept="0.04"/>
+        <feFuncB type="linear" slope="1.22" intercept="0.04"/>
+      </feComponentTransfer>
+    </filter>
+    <filter id="solid" color-interpolation-filters="sRGB" x="0" y="0" width="1" height="1">
+      <!-- 1. darken the pale greys so faded foam looks solid -->
+      <feComponentTransfer in="SourceGraphic" result="tone">
+        <feFuncR type="gamma" amplitude="1" exponent="1.8" offset="0"/>
+        <feFuncG type="gamma" amplitude="1" exponent="1.8" offset="0"/>
+        <feFuncB type="gamma" amplitude="1" exponent="1.8" offset="0"/>
+      </feComponentTransfer>
+      <!-- 2. only pure white counts as background, so bright highlights on the foam stay solid -->
+      <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  -22.2 -22.2 -22.2 66.3 0" result="shape"/>
+      <!-- 3. fill tiny specks, then trim a hair off the outline so no white rim is left -->
+      <feMorphology in="shape" operator="erode" radius="4" result="open1"/>
+      <feMorphology in="open1" operator="dilate" radius="4" result="open2"/>
+      <feMorphology in="open2" operator="dilate" radius="2" result="grow"/>
+      <feMorphology in="grow" operator="erode" radius="3" result="trim"/>
+      <!-- 4. keep the model and brighten it a touch -->
+      <feComposite in="tone" in2="trim" operator="in" result="cut"/>
+      <feComponentTransfer in="cut">
+        <feFuncR type="linear" slope="1.2" intercept="0.04"/>
+        <feFuncG type="linear" slope="1.2" intercept="0.04"/>
+        <feFuncB type="linear" slope="1.2" intercept="0.04"/>
+      </feComponentTransfer>
+    </filter>
+  </svg>
+
+  <!-- ============ HERO ============ -->
+  <header class="case-hero">
+    <!-- HERO IMAGE: swap in your top-down render, e.g. images-web/tooth-fairy/fifi-hero.jpg -->
+    <img class="case-hero-img" src="images-web/tooth-fairy/toothyyyy-3.jpg" alt="Render of FIFI: a white winged tooth on a round drawer base">
+
+    <div class="topbar">
+      <a class="logo" href="index.html" aria-label="Wei Yi Wong, home">WW</a>
+      <nav class="nav" aria-label="Main">
+        <a class="btn ghost" href="index.html">Home</a>
+        <a class="btn ghost" href="projects.html" aria-current="page">Projects</a>
+        <a class="btn ghost" href="about.html">About me</a>
+        <a class="btn ghost" href="contact.html">Contact</a>
+      </nav>
+    </div>
+
+    <div class="case-burst" aria-hidden="true">
+      <div class="burst">
+        <svg viewBox="0 0 100 100"><path d="M50.0 0.0 L58.9 11.0 L71.7 5.0 L73.1 21.1 L89.1 18.8 L86.0 32.6 L98.7 38.9 L87.0 50.0 L98.7 61.1 L86.0 67.4 L89.1 81.2 L73.1 78.9 L71.7 95.0 L58.9 89.0 L50.0 100.0 L41.8 86.1 L28.3 95.0 L25.1 81.3 L10.9 81.2 L16.7 66.1 L1.3 61.1 L10.0 50.0 L1.3 38.9 L16.7 33.9 L10.9 18.8 L25.1 18.7 L28.3 5.0 L41.8 13.9Z"/></svg>
+        <span>02</span>
+      </div>
+    </div>
+    <h1 class="case-title">FIFI</h1>
+    <p class="case-sub">A tooth fairy keepsake about memory and time.</p>
+  </header>
+
+  <main>
+    <!-- ============ 01 OVERVIEW ============ -->
+    <section class="case-section case-two" id="overview" aria-labelledby="h-overview">
+      <div>
+        <h2 class="case-h" id="h-overview"><span class="num">01</span><span class="eat">Overview</span></h2>
+        <details class="case-acc" open>
+          <summary><span class="eat">Background</span><i aria-hidden="true"></i></summary>
+          <p>This design is meant to act as a physical reminder of those moments, allowing donors to reconnect with a meaningful memory through interaction.</p>
+          <p>I was tasked with creating a product for Infinitum that explores memory and time. Every person carries special memories tied to specific moments in their life and experiences that shape who they are. Chose six images that related most to time and memory. Each piece captures a certain time in everybody’s memory. The bus and paper airplane relate to childhood experiences. The leaves, hair, fossils, and faded photo show how things start to change and get old throughout time.</p>
+        </details>
+      </div>
+      <figure class="case-panel case-board">
+        <span class="deco-worm w-topRight" data-len="3" data-cell="30" data-flat="1"></span>
+        <figcaption class="case-panel-title">Ideation Board</figcaption>
+        <button class="zoom" type="button" data-cap="Ideation board: a school bus, autumn leaves, a gap-toothed smile, fossils, a haircut and old photos">
+          <img src="images-web/tooth-fairy/ideation-board.jpg" alt="Ideation board of six photos: a school bus, autumn leaves, a child's gap-toothed smile, fossils, a haircut and old photos with a camera" loading="lazy">
+        </button>
+      </figure>
+    </section>
+
+    <!-- ============ 02 IDEATION ============ -->
+    <section class="case-section" aria-labelledby="h-ideation">
+      <h2 class="case-h" id="h-ideation"><span class="num">02</span><span class="eat">Ideation</span></h2>
+      <div class="case-three">
+        <div>
+          <h3 class="case-col-title">First Ideation Sketches</h3>
+          <button class="zoom card" type="button" data-cap="First ideation sketches"><img src="images-web/tooth-fairy/screenshot-2026-09-30-at-8-23-35-am-tight.jpg" alt="First ideation sketches: butterflies, a trophy, bones, a comb, a moustache and keepsakes" loading="lazy"></button>
+          <button class="zoom card" type="button" data-cap="First ideation sketches"><img src="images-web/tooth-fairy/screenshot-2026-09-30-at-8-19-53-am-tight.jpg" alt="First ideation sketches: cars, a school bus, a snowman, leaves and gingerbread figures" loading="lazy"></button>
+        </div>
+        <div>
+          <h3 class="case-col-title">Refined Ideation Sketches</h3>
+          <button class="zoom card" type="button" data-cap="Refined ideation sketches: bows, a gift box, a cupcake and a ring of teeth"><img src="images-web/tooth-fairy/sq-refined-1-tight.jpg" alt="Refined ideation sketches in marker: a ribbon bow, a wrapped box, a cupcake shape and a ring of teeth" loading="lazy"></button>
+          <button class="zoom card" type="button" data-cap="Refined ideation sketches: bows, cars, springs and curls"><img src="images-web/tooth-fairy/sq-refined-2-tight.jpg" alt="Refined ideation sketches: a bow, cars, a spring, a braided curl and scroll shapes" loading="lazy"></button>
+        </div>
+        <div>
+          <h3 class="case-col-title">Final Ideation Sketches</h3>
+          <button class="zoom card" type="button" data-cap="Final ideation sketches"><img src="images-web/tooth-fairy/sketch-final-upright.jpg" alt="Final ideation sketches: tooth characters standing on drawer bases, with wings and crowns" loading="lazy"></button>
+          <button class="zoom card" type="button" data-cap="Final ideation sketches"><img src="images-web/tooth-fairy/sketch-final-2-tight.jpg" alt="Final ideation sketches: jaws, a pouch and hanging fairy forms" loading="lazy"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 03 ITERATION ============ -->
+    <section class="case-section" aria-labelledby="h-iteration">
+      <h2 class="case-h" id="h-iteration"><span class="num">03</span><span class="eat">Iteration</span></h2>
+      <div class="case-iter">
+        <div>
+          <h3 class="case-label">Orthographic</h3>
+          <div class="case-panel case-ortho">
+            <button class="zoom" type="button" data-cap="Orthographic drawing: winged tooth on a drawer base"><img src="images-web/tooth-fairy/tooth1.jpg" alt="Orthographic views (top, front, left, right) of a winged tooth on a drawer base" loading="lazy"></button>
+            <button class="zoom" type="button" data-cap="Orthographic drawing: crowned fairy on a drawer base"><img src="images-web/tooth-fairy/tooth2.jpg" alt="Orthographic views (top, back, front, left, right) of a crowned fairy shape on a drawer base" loading="lazy"></button>
+          </div>
+        </div>
+        <div class="case-foam">
+          <h3 class="case-label">Foam Models</h3>
+          <p>I have decided to create an idea based on the tooth fairy, a childhood memory in which a fairy places money under a child’s bed in exchange for a tooth.</p>
+          <button class="zoom solidcut foam-a" type="button" data-cap="Foam model: early study"><img src="images-web/tooth-fairy/crop-foam-early-mirror.jpg" alt="Foam model of an early fairy shape on a round base" loading="lazy"></button>
+          <button class="zoom solidcut foam-b" type="button" data-cap="Foam model: tooth on a drawer base"><img src="images-web/tooth-fairy/crop-foam-tooth.jpg" alt="Foam model of a tooth shape on a round base with drawer pulls" loading="lazy"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 04 FINAL PROTOTYPE ============ -->
+    <section class="case-section" aria-labelledby="h-final">
+      <h2 class="case-h" id="h-final"><span class="num">04</span><span class="eat">Final Prototype</span></h2>
+      <div class="case-four case-paper">
+        <button class="zoom" type="button" data-cap="Foam prototype, taken apart: tooth, pin and drawer base"><img src="images-web/tooth-fairy/sq-proto-1.jpg" alt="Foam prototype taken apart: the tooth floats above the pin and the drawer base with drawers open" loading="lazy"></button>
+        <button class="zoom" type="button" data-cap="Exploded render: the two tooth halves, turning plate and drawer base"><img src="images-web/tooth-fairy/sq-proto-2.jpg" alt="Exploded render of the two tooth halves above the turning plate and drawer base" loading="lazy"></button>
+        <button class="zoom" type="button" data-cap="Final render"><img src="images-web/tooth-fairy/sq-proto-3.jpg" alt="Final render of the white winged tooth on its drawer base" loading="lazy"></button>
+        <button class="zoom" type="button" data-cap="Foam prototype, assembled"><img src="images-web/tooth-fairy/sq-proto-4.jpg" alt="Assembled foam prototype of the tooth on its drawer base" loading="lazy"></button>
+      </div>
+
+      <div class="case-howto">
+        <div>
+          <h3 class="case-h2"><span class="eat">How to use</span></h3>
+          <ul class="case-steps">
+            <li>Put the tooth in the top slit</li>
+            <li>Spin the tooth to whichever drawer you want the tooth to be put in</li>
+            <li>Take the tooth off the stand and put it next to the child</li>
+            <li>Put money into the slit of the tooth.</li>
+          </ul>
+        </div>
+        <div class="case-panel">
+          <span class="deco-worm w-peekLeft" data-len="2-3" data-cell="30"></span>
+          <button class="zoom" type="button" data-cap="Storyboard: put the tooth in, spin to a drawer, leave it by the bed, sleep"><img src="images-web/tooth-fairy/storyboard.jpg" alt="Storyboard: a hand drops a tooth into the slit, spins the base, places the tooth by the bed, and a child sleeps" loading="lazy"></button>
+        </div>
+      </div>
+    </section>
+
+    <nav class="case-end" aria-label="More projects">
+      <a class="btn ghost" href="projects.html">← All projects</a>
+      <a class="btn accent" id="nextProject" href="projects.html">Next project →</a>
+    </nav>
+  </main>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button class="lb-btn lb-close" type="button" aria-label="Close image viewer">✕</button>
+    <button class="lb-btn lb-prev" type="button" aria-label="Previous image">←</button>
+    <figure>
+      <img id="lbImg" alt="">
+      <figcaption><span class="lb-count" id="lbCount"></span><span id="lbCaption"></span></figcaption>
+    </figure>
+    <button class="lb-btn lb-next" type="button" aria-label="Next image">→</button>
+  </div>
+
+  <script src="js/projects.js"></script>
+  <script src="js/case.js"></script>
+  <script src="js/worm-deco.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/editor.js"></script>
+  <script src="js/nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Project · Wei Yi Wong</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400..700&family=Nunito:ital,wght@0,400..800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#journey">Skip to the process</a>
+
+  <header class="topbar">
+    <a class="logo" href="index.html" aria-label="Wei Yi Wong, home">WW</a>
+    <nav class="nav" aria-label="Main">
+      <a class="btn ghost" href="index.html">Home</a>
+      <a class="btn ghost" href="projects.html" aria-current="page">Projects</a>
+      <a class="btn ghost" href="about.html">About me</a>
+      <a class="btn ghost" href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- everything below is filled in from js/projects.js by js/project.js -->
+  <main id="main"></main>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button class="lb-btn lb-close" type="button" aria-label="Close image viewer">✕</button>
+    <button class="lb-btn lb-prev" type="button" aria-label="Previous image">←</button>
+    <figure>
+      <img id="lbImg" src="" alt="">
+      <figcaption><span class="lb-count" id="lbCount"></span><span id="lbCaption"></span></figcaption>
+    </figure>
+    <button class="lb-btn lb-next" type="button" aria-label="Next image">→</button>
+  </div>
+
+  <script src="js/projects.js"></script>
+  <script src="js/project.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/editor.js"></script>
+  <script src="js/nav.js"></script>
+</body>
+</html>
