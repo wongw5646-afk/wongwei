@@ -1257,5 +1257,11 @@ h1, h2, h3 { font-weight: 600; letter-spacing: -.01em; }
 .wh-three:not(.wh-paper3) .zoom, .wh-three:not(.wh-paper3) .zoom img { height: 22vw; max-height: none; width: auto; }
 .wh-three:not(.wh-paper3) .zoom img { object-fit: contain; }
 /* Whiddi: backgrounds cut out of the model pictures, so no white panels or blend tricks */
-.wh-paper3 .zoom img { mix-blend-mode: normal; }
-.wh-paper3 { padding: 0 4%; }
+/* foam+obo back on white paper (cut-out overrides removed) */
+
+
+/* Whiddi foam models: back on white rectangles, all the same size */
+.wh-three.wh-foam-box { align-items: stretch; column-gap: 4%; width: 88%; }
+.wh-three.wh-foam-box .zoom { width: 100%; height: auto; max-height: none; aspect-ratio: 1 / 1; background: #fff; border-radius: 14px; padding: 6%; box-sizing: border-box; display: flex; align-items: center; justify-content: center; }
+.wh-three.wh-foam-box .zoom img { width: 100%; height: 100%; max-height: none; object-fit: contain; mix-blend-mode: multiply; }
+@media (max-width: 760px) { .wh-three.wh-foam-box { width: 100%; column-gap: 3%; } }
