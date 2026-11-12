@@ -1252,3 +1252,10 @@ h1, h2, h3 { font-weight: 600; letter-spacing: -.01em; }
 .ct-title .eat { white-space: normal; display: inline; }
 @media (max-width: 899px) { .ct-title { font-size: clamp(2.2rem, 11vw, 3.4rem); } }
 .ct-title { margin-bottom: clamp(30px, 3.6vw, 60px); }
+/* Whiddi foam models: three pictures in one straight row, same height, bottoms lined up */
+.wh-three:not(.wh-paper3) { align-items: end; }
+.wh-three:not(.wh-paper3) .zoom, .wh-three:not(.wh-paper3) .zoom img { height: 22vw; max-height: none; width: auto; }
+.wh-three:not(.wh-paper3) .zoom img { object-fit: contain; }
+/* Whiddi: backgrounds cut out of the model pictures, so no white panels or blend tricks */
+.wh-paper3 .zoom img { mix-blend-mode: normal; }
+.wh-paper3 { padding: 0 4%; }
