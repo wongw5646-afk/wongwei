@@ -1,0 +1,173 @@
+/* =========================================================
+   HOME PAGE: topographic map (index.html + js/topo.js)
+   Fine-line "tattoo" contour lines; each project is a peak.
+   ========================================================= */
+.topo-wrap { padding: 70px 0 10px; place-items: center; }
+.topo { display: block; width: 100%; height: auto; overflow: visible; }
+@media (min-width: 900px) {
+  .topo { width: min(100%, calc((100svh - 90px) * 1000 / 800)); }
+}
+
+/* the lines */
+.topo-lines path {
+  fill: none; stroke: var(--text); stroke-width: 1.35; stroke-linejoin: round; stroke-linecap: round;
+  opacity: .78; vector-effect: non-scaling-stroke;
+  transition: stroke .35s, opacity .35s, stroke-width .35s;
+}
+.topo-lines path.idx { stroke-width: 2.7; opacity: .95; }     /* every 4th line heavier, like index contours */
+.topo.drawn .topo-lines path {
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 2.4s cubic-bezier(.4, .1, .2, 1) calc(var(--lv) * 55ms), stroke .35s, opacity .35s, stroke-width .35s;
+}
+.topo.still .topo-lines path { stroke-dasharray: none !important; transition: none; }
+
+/* hovering a peak: its rings go hot pink, everything else steps back */
+.topo-hit { fill: transparent; stroke: none; cursor: pointer; }
+.topo-peak { cursor: pointer; outline: none; }
+.topo.focus .topo-lines path { opacity: .28; }
+.topo.focus .topo-peak.on .topo-lines path { stroke: var(--accent); opacity: 1; }
+.topo.focus .topo-peak.on .topo-lines path.idx { stroke-width: 3.2; }
+.topo-peak:focus-visible .topo-hit { stroke: var(--accent); stroke-width: 2; stroke-dasharray: 4 6; }
+
+/* the project photo that rises at the summit */
+.topo-photo { opacity: 0; transform-box: fill-box; transform-origin: center; scale: .6; transition: opacity .35s, scale .45s cubic-bezier(.34, 1.56, .64, 1); pointer-events: none; }
+.topo-peak.on .topo-photo { opacity: 1; scale: 1; }
+.topo-photo-bg { fill: var(--bg); }
+.topo-photo-ring { fill: none; stroke: var(--accent); stroke-width: 2.5; }
+
+/* survey triangle + label */
+.topo-mark path { fill: none; stroke: var(--text); stroke-width: 1.6; stroke-linejoin: round; }
+.topo-mark .dot { fill: var(--text); }
+.topo-peak.on .topo-mark { opacity: 0; }
+.topo-label .lead { fill: none; stroke: var(--text); stroke-width: 1; opacity: .6; stroke-dasharray: 2 4; }
+.topo-label text { fill: var(--text); font-family: var(--mono); letter-spacing: .12em; }
+.topo-label .num { font-size: 15px; fill: var(--accent); font-weight: 700; }
+.topo-label .name { font-size: 15px; font-weight: 600; }
+.topo-peak.on .topo-label .lead { stroke: var(--accent); opacity: 1; stroke-dasharray: none; }
+.topo-peak.on .topo-label .name { fill: var(--accent); }
+.topo-label { transition: opacity .35s; }
+.topo.focus .topo-peak:not(.on) .topo-label { opacity: .35; }
+
+/* compass and scale bar */
+.topo-deco { opacity: .55; }
+.topo-deco path, .topo-deco circle { fill: none; stroke: var(--text); stroke-width: 1; }
+.topo-deco .fill { fill: var(--text); stroke: none; }
+.topo-deco text { fill: var(--text); font-family: var(--mono); font-size: 12px; letter-spacing: .14em; }
+
+@media (max-width: 899px) {
+  .topo-wrap { padding: 10px 0 30px; }
+  .topo-label text { font-size: 22px; }
+  .topo-label .num { font-size: 22px; }
+}
+
+/* thinner needle on smaller screens so the rings don't clump together */
+@media (max-width: 1200px) {
+  .topo-lines path { stroke-width: 1.1; }
+  .topo-lines path.idx { stroke-width: 2.1; }
+}
+@media (max-width: 899px) {
+  .topo-lines path { stroke-width: .75; }
+  .topo-lines path.idx { stroke-width: 1.5; }
+  .topo.focus .topo-peak.on .topo-lines path.idx { stroke-width: 2; }
+  .topo-label text, .topo-label .num, .topo-label .name { font-size: 25px; }
+  .topo-deco { display: none; }
+}
+
+/* ---------- the map fills the whole page (desktop) ---------- */
+@media (min-width: 900px) {
+  .t-stage { position: relative; }
+  .topo-wrap { position: absolute; inset: 0; z-index: 0; padding: 0; display: block; }
+  .topo { width: 100% !important; height: 100%; }
+  /* soften the lines behind the name and the big number so the words stay easy to read */
+  .topo-wrap::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background: linear-gradient(90deg, rgba(15, 27, 61, .6) 0%, rgba(15, 27, 61, .3) 10%, rgba(15, 27, 61, 0) 20%);
+  }
+  .t-text { z-index: 3; pointer-events: none; }
+  .t-text a, .t-text .t-label { pointer-events: auto; }
+  .tree-home .topbar { z-index: 5; }
+}
+
+/* the top rings of each project hill: always hot pink */
+.topo-lines path.top { stroke: var(--accent); opacity: 1; }
+.topo-lines path.top.idx { stroke-width: 2.9; }
+.topo-peak .topo-label .name { fill: var(--text); }
+.tree-home .nav .btn.ghost:not([aria-current]) { background: rgba(15, 27, 61, .9); }
+.tree-home .t-go { background: rgba(15, 27, 61, .9); }
+
+/* bigger hover photo: keep the hill "on" while the mouse is over the photo, and lift the label clear of it */
+.topo-peak.on .topo-photo { pointer-events: auto; }
+.topo-photo { filter: drop-shadow(0 14px 30px rgba(0, 0, 0, .45)); }
+.topo-photo-ring { stroke-width: 4; }
+.topo-peak.on .topo-label { opacity: 0; }
+/* the name and the big number get a soft navy glow so they stay readable on top of the lines */
+@media (min-width: 900px) {
+  .tree-home .t-name, .tree-home .t-kicker, .tree-home .t-num, .tree-home .t-title, .tree-home .t-tag {
+    text-shadow: 0 0 18px var(--bg), 0 0 6px var(--bg), 0 0 2px var(--bg);
+  }
+}
+
+/* white lines a bit softer (pink hilltops stay bright) */
+.topo-lines path { opacity: .5; }
+.topo-lines path.idx { opacity: .62; }
+.topo-lines path.top { opacity: 1; }
+.topo.focus .topo-lines path { opacity: .2; }
+.topo.focus .topo-peak.on .topo-lines path { opacity: 1; }
+
+/* bolder pink hilltops */
+.topo-lines path.top { stroke-width: 2.6; opacity: 1; }
+.topo-lines path.top.idx { stroke-width: 3.6; }
+.topo.focus .topo-peak.on .topo-lines path { stroke-width: 2.2; }
+.topo.focus .topo-peak.on .topo-lines path.top { stroke-width: 2.8; }
+.topo-label .num { font-size: 17px; font-weight: 800; }
+@media (max-width: 899px) {
+  .topo-lines path.top { stroke-width: 1.8; }
+  .topo-lines path.top.idx { stroke-width: 2.4; }
+}
+
+/* project names on the map: big, bold, with a navy outline so the lines never cut through them */
+.topo-label text { paint-order: stroke; stroke: var(--bg); stroke-linejoin: round; }
+.topo-label .name { font-family: var(--display); font-size: 26px; font-weight: 800; letter-spacing: .06em; fill: #FFFFFF; stroke-width: 10px; }
+.topo-label .num { font-family: var(--display); font-size: 20px; font-weight: 800; stroke-width: 8px; }
+.topo-label .lead { stroke: var(--accent); opacity: 1; stroke-width: 1.6; stroke-dasharray: none; }
+.topo.focus .topo-peak:not(.on) .topo-label { opacity: .5; }
+@media (max-width: 899px) {
+  .topo-label .name { font-size: 34px; stroke-width: 12px; }
+  .topo-label .num { font-size: 28px; }
+}
+
+/* project names on the map removed (hovering a hill still shows its photo and name on the left).
+   Delete this line to bring the names back. */
+.topo-label { display: none; }
+
+/* ---------- modern map typography (home page only) ----------
+   Space Grotesk for the name and the big number: clean, technical, architectural;
+   small spaced-out monospace for the fine print, like survey labels. */
+.tree-home .t-name {
+  font-family: "Space Grotesk", system-ui, sans-serif; font-weight: 600;
+  font-size: clamp(2.6rem, 4.6vw, 5rem); letter-spacing: -.035em; line-height: .95; margin-bottom: 14px;
+}
+.tree-home .t-kicker {
+  font-family: "JetBrains Mono", ui-monospace, monospace; font-weight: 700;
+  font-size: clamp(.74rem, .85vw, .9rem); letter-spacing: .24em; text-transform: uppercase;
+}
+.tree-home .t-num {
+  font-family: "Space Grotesk", system-ui, sans-serif; font-weight: 500;
+  font-size: clamp(4rem, 8vw, 8.5rem); letter-spacing: -.05em; line-height: .9;
+}
+.tree-home .t-title {
+  font-family: "Space Grotesk", system-ui, sans-serif; font-weight: 600;
+  font-size: clamp(1.25rem, 1.6vw, 1.7rem); letter-spacing: -.02em; margin: 8px 0 6px;
+}
+.tree-home .t-tag { font-family: "Inter", system-ui, sans-serif; font-size: clamp(.82rem, .85vw, .92rem); letter-spacing: 0; }
+.tree-home .t-go {
+  font-family: "JetBrains Mono", ui-monospace, monospace; font-weight: 500;
+  font-size: clamp(.66rem, .7vw, .74rem); letter-spacing: .2em; text-transform: uppercase;
+}
+.tree-home .logo { font-family: "Space Grotesk", system-ui, sans-serif; font-weight: 700; letter-spacing: -.04em; }
+.topo-deco text { font-family: "JetBrains Mono", ui-monospace, monospace; }
+
+/* minimal map: no triangles or compass, plain text link */
+.topo-mark, .topo-deco { display: none; }
+.tree-home .t-go { background: transparent !important; box-shadow: none; padding: 6px 0; border-bottom: 1px solid var(--accent); border-radius: 0; }
+.tree-home .t-go:hover { background: transparent; color: var(--accent); }

@@ -104,7 +104,8 @@
       el.appendChild(ey);
       var num = document.createElement("span");
       num.className = "leaf-num";
-      num.textContent = "0" + n;
+      num.innerHTML = "0" + n + "<span class=\"leaf-name\"></span>";   // number + short project name, so phones (no hover) can see what each leaf is
+      num.querySelector(".leaf-name").textContent = p.title.split(" ")[0];
       el.appendChild(num);
       el._p = p; el._n = n;
       eyes.push(el);

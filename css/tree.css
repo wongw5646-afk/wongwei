@@ -255,3 +255,30 @@
 @media (max-width: 899px) { .t-num { font-size: clamp(3.6rem, 19vw, 6rem); } }
 /* no blinking orange bar before the big number */
 .t-num .u { display: none; }
+
+/* ---------- tree as the main focus: bigger tree, shorter trunk, smaller side text ---------- */
+@media (min-width: 900px) {
+  .t-stage { grid-template-columns: 27% 1fr; }
+  .t-name { font-size: clamp(2rem, 3.4vw, 3.8rem); white-space: nowrap; }
+  .t-kicker { font-size: clamp(.85rem, 1vw, 1.1rem); }
+  .t-tree-wrap { padding-top: 62px; padding-bottom: 0; place-items: end center; }
+  .t-tree { aspect-ratio: 420 / 340; width: min(100%, calc((100svh - 78px) * 420 / 340)); }
+  .t-canopy { height: 84.7%; }
+  .t-trunk { top: 74.1%; height: 24.9%; }
+  .t-ground { bottom: 3px; }
+  .t-glow { width: 100%; opacity: .45; }
+}
+@media (min-width: 1200px) {
+  .t-stage { grid-template-columns: 24% 1fr; }
+  .t-tree { width: min(112%, 1500px, calc((100svh - 78px) * 420 / 340)); translate: -3% 0; }
+}
+
+/* the big project number on the left, smaller so the tree leads */
+.t-num { font-size: clamp(3rem, 6vw, 6rem); }
+.t-title { font-size: clamp(1rem, 1.3vw, 1.4rem); margin: 8px 0 4px; }
+@media (max-width: 899px) { .t-num { font-size: clamp(3rem, 15vw, 4.6rem); } }
+
+/* project name next to the number on each project leaf (helps on phones, where you can't hover) */
+.leaf-name { margin-left: 5px; font-weight: 700; letter-spacing: .02em; }
+.tree-home .leaf-num { white-space: nowrap; padding: 2px 8px; }
+@media (max-width: 899px) { .tree-home .leaf-num { font-size: .58rem; padding: 2px 6px; } }

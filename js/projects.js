@@ -31,7 +31,7 @@ window.PROJECTS = [
     id: "whiddi",
     page: "whiddi.html",   // this project has its own hand-made page
     title: "Whiddi",
-    tagline: "A pot clip that sings when the water boils.",
+    tagline: "A pot clip that whistles when the water boils.",
     summary:
       "Draft: A little red clip for a partially sighted young cook. Steam travels up a channel inside its body and comes out as a whistle, so you can hear when the pasta water is ready.",
     status: "finished",
@@ -111,7 +111,7 @@ window.PROJECTS = [
     id: "tooth-fairy",
     page: "fifi.html",   // this project has its own hand-made page
     title: "FIFI",
-    tagline: "A tooth fairy keepsake for lost teeth and big memories.",
+    tagline: "A tooth fairy keepsake about memory and time.",
     summary:
       "Draft: A nightstand keepsake where a child leaves a lost tooth for the Tooth Fairy. It's about time and memory: little drawers keep each tooth and the moments that go with it.",
     status: "finished",
@@ -237,8 +237,8 @@ window.PROJECTS = [
   {
     id: "dugong",
     page: "dugong.html",   // this project has its own hand-made page
-    title: "Dugong Puzzle",
-    tagline: "Animals hiding inside animals, in wood.",
+    title: "Dugong",
+    tagline: "An endangered animal puzzle in hand-stained wood.",
     summary:
       "Draft: A wooden puzzle where smaller animals nest inside a bigger one. It started with animal drawings and ended as a hand-stained dugong.",
     status: "finished",
@@ -326,3 +326,40 @@ window.projectImg = function (project, src) {
 window.findProject = function (id) {
   return window.PROJECTS.find(function (p) { return p.id === id; });
 };
+
+/* =========================================================
+   SKILLS: extra pages listed under "Skills" in the Projects menu.
+   Each skill:
+     id, title, page, tagline
+     thumb    small round picture in the menu (or leave "" for initials)
+     images   list of { src, caption }  (src is from the images-web folder)
+   To add a picture: put it in images-web/ and add a line to images.
+   ========================================================= */
+window.SKILLS = [
+  {
+    id: "cad-renders",
+    title: "CAD Renders",
+    page: "cad-renders.html",
+    tagline: "Product renders and CAD models.",
+    thumb: "skills/cad-seat-red.jpg",
+images: [
+  { src: "skills/cad-blenders.jpg", caption: "Personal blender in three colours" },
+  { src: "skills/cad-seat-red.jpg", caption: "Stool in red translucent material" },
+  { src: "skills/cad-seat-yellow.jpg", caption: "Stool in glossy yellow" },
+  { src: "skills/cad-donut.jpg", caption: "Ring frame, action shot" },
+  { src: "skills/cad-car.jpg", hover: "skills/cad-car-exploded.jpg", caption: "Toy car (hover for the exploded view)" }
+    ]
+  },
+  {
+    id: "photoshop",
+    title: "Photoshop",
+    page: "photoshop.html",
+    tagline: "Editing, compositing and presentation boards.",
+thumb: "skills/ps-sneaker.jpg",
+initials: "Ps",
+images: [
+  { src: "skills/ps-sneaker.jpg", caption: "Velcro sneaker rendering" },
+  { src: "skills/ps-phones.jpg", caption: "Phone in three colourways" }
+]
+  }
+];

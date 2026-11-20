@@ -1,0 +1,181 @@
+/* =========================================================
+   HOME: project badge cards hanging from a string (js/hang.js)
+   ========================================================= */
+.hang-home { overflow-x: hidden; }
+.hang-home .topbar { position: absolute; top: 0; left: 0; right: 0; z-index: 5; }
+.hg-stage { position: relative; min-height: 100svh; display: flex; flex-direction: column; padding: clamp(96px, 13vh, 130px) var(--edge) clamp(18px, 3vh, 30px); }
+
+/* heading row */
+.hg-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; }
+.hg-kicker { margin: 0 0 12px; font-family: "DM Mono", ui-monospace, monospace !important; font-size: .74rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
+.hg-title { margin: 0; font-size: clamp(2.6rem, 5.4vw, 5.6rem) !important; font-weight: 700 !important; line-height: .98; letter-spacing: -.045em; color: var(--text); }
+.hg-title span { display: block; color: var(--accent); font-weight: 600; }
+.hg-side { max-width: 300px; margin: 0 0 8px; font-size: .86rem; line-height: 1.6; color: var(--muted); }
+
+/* the string and the cards */
+.hg-line { position: relative; flex: 1; min-height: 470px; margin: clamp(26px, 4vh, 46px) calc(var(--edge) * -1) 0; }
+.hg-string { position: absolute; left: 0; top: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.hg-string path { fill: none; stroke: rgba(255, 255, 255, .55); stroke-width: 1.4; }
+
+.hg-card {
+  position: absolute; width: clamp(170px, 17vw, 250px); text-decoration: none; color: inherit;
+  transform: translate(-50%, 0) translateY(var(--drop)) rotate(var(--tilt));
+  transform-origin: 50% 0; perspective: 1200px; z-index: 1;
+  animation: hgSway 5.5s ease-in-out infinite; animation-delay: var(--delay);
+  transition: transform .5s cubic-bezier(.34, 1.4, .64, 1);
+}
+@keyframes hgSway {
+  0%, 100% { rotate: 0deg; }
+  50% { rotate: 1.8deg; }
+}
+.hg-card.flip { z-index: 3; animation-play-state: paused; transform: translate(-50%, 0) translateY(calc(var(--drop) - 6px)) rotate(0deg) scale(1.04); }
+.still .hg-card { animation: none; }
+
+/* the clip that holds the card on the string, plus a short cord */
+.hg-clip { position: absolute; left: 50%; top: 0; width: 14px; height: 30px; translate: -50% -4px; z-index: 2;
+  background: linear-gradient(180deg, #E9ECF4, #B9C0D3); border-radius: 3px; box-shadow: 0 2px 4px rgba(0, 0, 0, .35); }
+.hg-clip::after { content: ""; position: absolute; left: 50%; top: 100%; width: 1.4px; height: calc(var(--drop) + 18px); background: rgba(255, 255, 255, .5); translate: -50% 0; z-index: -1; }
+
+/* flipping card */
+.hg-flip { position: relative; display: block; margin-top: calc(var(--drop) * 0 + 40px); aspect-ratio: 5 / 7; transform-style: preserve-3d; transition: transform .8s cubic-bezier(.3, .8, .25, 1); }
+.hg-card.flip .hg-flip { transform: rotateY(180deg); }
+.hg-face {
+  position: absolute; inset: 0; display: flex; flex-direction: column; padding: 12px 12px 14px; border-radius: 16px;
+  backface-visibility: hidden; -webkit-backface-visibility: hidden;
+  box-shadow: 0 22px 40px rgba(0, 0, 0, .35), inset 0 0 0 1px rgba(255, 255, 255, .6);
+}
+.hg-front { background: linear-gradient(170deg, #FFFFFF 0%, #EEF0F6 100%); color: #0F1B3D; }
+.hg-back {
+  transform: rotateY(180deg); color: #0F1B3D;
+  background: linear-gradient(125deg, #F6E9FF 0%, #DDF3FF 22%, #FFE3F0 44%, #E9FFF4 64%, #F3E6FF 82%, #FFF 100%);
+  background-size: 200% 200%; animation: hgHolo 6s ease-in-out infinite;
+}
+@keyframes hgHolo { 0%, 100% { background-position: 0% 30%; } 50% { background-position: 100% 70%; } }
+.hg-top { display: flex; justify-content: center; margin-bottom: 10px; }
+.hg-slot { width: 34px; height: 6px; border-radius: 6px; background: rgba(15, 27, 61, .14); box-shadow: inset 0 1px 2px rgba(0, 0, 0, .2); }
+
+.hg-photo { position: relative; display: block; flex: 1; min-height: 0; border-radius: 11px; overflow: hidden; background: #DDE1EA; }
+.hg-photo img { width: 100%; height: 100%; object-fit: cover; }
+.hg-name { display: block; margin-top: 12px; font-weight: 800; font-size: clamp(.95rem, 1.1vw, 1.15rem); letter-spacing: -.02em; }
+.hg-role { display: block; margin-top: 3px; font-size: .7rem; line-height: 1.35; color: #5B6585; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.hg-row { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; }
+.hg-num { font-family: "DM Mono", ui-monospace, monospace !important; font-size: .7rem; letter-spacing: .14em; color: var(--accent); }
+.hg-dot { width: 10px; height: 10px; border-radius: 50%; background: #0F1B3D; }
+
+/* back of the card */
+.hg-bnum { font-family: "DM Mono", ui-monospace, monospace !important; font-size: .72rem; letter-spacing: .16em; color: var(--accent); }
+.hg-bname { margin-top: 6px; font-weight: 800; font-size: clamp(1.3rem, 1.7vw, 1.7rem); letter-spacing: -.035em; line-height: 1; }
+.hg-btag { margin-top: 10px; font-size: .76rem; line-height: 1.45; color: #34405F; }
+.hg-meta { display: flex; justify-content: space-between; margin-top: auto; padding-top: 10px; border-top: 1px solid rgba(15, 27, 61, .15);
+  font-family: "DM Mono", ui-monospace, monospace !important; font-size: .6rem; letter-spacing: .1em; text-transform: uppercase; color: #5B6585; }
+.hg-go { margin-top: 10px; font-weight: 700; font-size: .8rem; color: var(--accent); }
+.hg-code { position: absolute; right: 14px; top: 30px; display: grid; grid-template-columns: repeat(7, 5px); gap: 1.5px; opacity: .75; }
+.hg-code i { width: 5px; height: 5px; background: transparent; }
+.hg-code i.on { background: #0F1B3D; }
+
+/* footer row */
+.hg-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--line);
+  font-family: "DM Mono", ui-monospace, monospace !important; font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.hg-foot a { color: var(--text); text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 3px; }
+.hg-foot a:hover { color: var(--accent); }
+
+/* phones: the string becomes wider than the screen and scrolls sideways */
+@media (max-width: 760px) {
+  .hg-head { flex-direction: column; align-items: flex-start; gap: 14px; }
+  .hg-line { overflow-x: auto; overflow-y: hidden; min-height: 440px; -webkit-overflow-scrolling: touch; }
+  .hg-line > * { }
+  .hg-line { display: block; }
+  .hg-foot span { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .hg-card, .hg-back { animation: none; } }
+
+/* =========================================================
+   CARD RESTYLE: cleaner badge with pink accents
+   ========================================================= */
+.hg-string path { stroke: rgba(255, 61, 139, .7); stroke-width: 1.6; }
+.hg-clip { width: 16px; height: 26px; border-radius: 4px; background: linear-gradient(180deg, #FF7AB0, #FF3D8B); box-shadow: 0 3px 8px rgba(255, 61, 139, .45); }
+.hg-clip::after { background: rgba(255, 61, 139, .6); width: 1.6px; }
+
+.hg-face { border-radius: 20px; padding: 0 0 14px; overflow: hidden; box-shadow: 0 30px 50px -18px rgba(0, 0, 0, .55), 0 0 0 1px rgba(255, 255, 255, .08); }
+.hg-front { background: #FFFFFF; }
+/* pink band across the top with the badge slot */
+.hg-front .hg-top, .hg-back .hg-top {
+  margin: 0 0 12px; height: 34px; align-items: center;
+  background: linear-gradient(90deg, #FF3D8B, #FF7AB0);
+}
+.hg-slot { width: 38px; height: 8px; background: rgba(15, 27, 61, .9); box-shadow: inset 0 1px 2px rgba(0, 0, 0, .5); }
+.hg-photo { margin: 0 12px; border-radius: 14px; background: #F6F1F4; box-shadow: inset 0 0 0 1px rgba(15, 27, 61, .06); }
+.hg-name { margin: 12px 14px 0; font-size: clamp(1rem, 1.15vw, 1.2rem); }
+.hg-role { margin: 4px 14px 0; font-size: .72rem; color: #6B7391; }
+.hg-row { margin: 12px 14px 0; }
+.hg-num { padding: 3px 9px; border-radius: 999px; background: rgba(255, 61, 139, .12); color: #E8336F; font-size: .66rem; letter-spacing: .12em; }
+.hg-dot { width: 26px; height: 26px; border-radius: 50%; background: #FF3D8B; position: relative; }
+.hg-dot::after { content: "→"; position: absolute; inset: 0; display: grid; place-items: center; color: #fff; font-size: .8rem; font-weight: 700; }
+
+/* back: soft pink shimmer */
+.hg-back { background: linear-gradient(125deg, #FFE1EE 0%, #FFF4F9 25%, #F3E7FF 50%, #FFE6F1 75%, #FFFFFF 100%); background-size: 220% 220%; padding: 0 0 16px; }
+.hg-back > :not(.hg-top):not(.hg-code) { margin-left: 16px; margin-right: 16px; }
+.hg-bnum { color: #E8336F; }
+.hg-go { display: inline-block; align-self: flex-start; margin-top: 12px; padding: 8px 14px; border-radius: 999px; background: #FF3D8B; color: #fff; font-size: .76rem; }
+.hg-code { top: 50px; }
+.hg-code i.on { background: #E8336F; }
+.hg-meta { border-top-color: rgba(232, 51, 111, .25); }
+
+/* =========================================================
+   IRIDESCENT FINISH: pearly base, holographic tint, a slow
+   moving shine, and a glare that follows the mouse
+   ========================================================= */
+.hg-front {
+  background:
+    linear-gradient(135deg, rgba(255, 214, 236, .55) 0%, rgba(232, 222, 255, .45) 30%, rgba(214, 240, 255, .4) 55%, rgba(255, 236, 246, .5) 80%, rgba(255, 255, 255, .6) 100%),
+    #FFFFFF;
+}
+.hg-face::before, .hg-face::after { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: 3; }
+/* holographic colour film */
+.hg-face::before {
+  background: linear-gradient(115deg,
+    rgba(255, 61, 139, 0) 20%, rgba(255, 120, 190, .28) 32%, rgba(180, 140, 255, .26) 42%,
+    rgba(120, 210, 255, .24) 52%, rgba(140, 255, 210, .2) 60%, rgba(255, 61, 139, 0) 72%);
+  background-size: 250% 250%;
+  mix-blend-mode: color-dodge; opacity: .55;
+  animation: hgFilm 7s ease-in-out infinite;
+}
+@keyframes hgFilm { 0%, 100% { background-position: 0% 0%; } 50% { background-position: 100% 100%; } }
+/* glare that follows the mouse (position set in js/hang.js), and a soft sheen when still */
+.hg-face::after {
+  background:
+    radial-gradient(circle at var(--gx, 30%) var(--gy, 20%), rgba(255, 255, 255, .75) 0%, rgba(255, 255, 255, .15) 22%, rgba(255, 255, 255, 0) 45%),
+    linear-gradient(160deg, rgba(255, 255, 255, .5) 0%, rgba(255, 255, 255, 0) 35%);
+  mix-blend-mode: soft-light; opacity: .9;
+  transition: opacity .3s;
+}
+/* keep the photo and words above the colour film so they stay crisp */
+.hg-photo, .hg-name, .hg-role, .hg-row, .hg-top { position: relative; z-index: 2; }
+.hg-photo::after {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0) 35%, rgba(255, 255, 255, .35) 48%, rgba(255, 255, 255, 0) 60%);
+  background-size: 300% 100%; animation: hgShine 5.5s ease-in-out infinite; animation-delay: var(--delay);
+}
+@keyframes hgShine { 0% { background-position: 120% 0; } 60%, 100% { background-position: -40% 0; } }
+.hg-back::before { opacity: .8; }
+@media (prefers-reduced-motion: reduce) { .hg-face::before, .hg-photo::after { animation: none; } }
+/* stronger iridescence on the white, under the photo and words; pink band stays bright */
+.hg-face::before {
+  z-index: 1; mix-blend-mode: normal; opacity: 1;
+  background: linear-gradient(115deg,
+    rgba(255, 120, 190, .00) 8%, rgba(255, 120, 190, .30) 22%, rgba(190, 150, 255, .30) 36%,
+    rgba(130, 205, 255, .30) 50%, rgba(150, 255, 215, .26) 62%, rgba(255, 190, 120, .22) 74%, rgba(255, 120, 190, .00) 90%);
+  background-size: 260% 260%;
+}
+.hg-top { z-index: 4 !important; }
+.hg-face::after { z-index: 3; mix-blend-mode: normal; opacity: .55; }
+.hg-card:hover .hg-face::after { opacity: .8; }
+
+/* no pink band at the top of the cards: just the badge slot on the card itself */
+.hg-front .hg-top, .hg-back .hg-top { background: transparent !important; height: 30px; margin-bottom: 8px; }
+.hg-slot { background: rgba(15, 27, 61, .18); box-shadow: inset 0 1px 2px rgba(0, 0, 0, .25); }
+
+/* heading: PORTFOLIO big, "Industrial Design" small, then the name */
+.hg-titles .hg-title { font-size: clamp(3rem, 7.4vw, 7.6rem) !important; line-height: .9; letter-spacing: -.055em; }
+.hg-titles .hg-kicker { margin: 14px 0 0; color: var(--accent); }
+.hg-name { margin: 6px 0 0; font-weight: 700; font-size: clamp(1.1rem, 1.6vw, 1.6rem); letter-spacing: -.02em; color: var(--text); }

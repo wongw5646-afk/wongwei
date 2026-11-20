@@ -1,0 +1,84 @@
+/* =========================================================
+   HOME LANDING: Wei Yi's hand-drawn PORTFOLIO cloud
+   (images-web/home/hm-cloud.png), bobbing and squishy,
+   with bubbles floating up behind it. The tree follows below.
+   ========================================================= */
+.bb-hero {
+  position: relative; min-height: 100svh; overflow: hidden;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 90px var(--edge) 70px; text-align: center;
+}
+/* the cloud: bobs up and down, wobbles a little, squishes when you hover or press it */
+.bb-cloud { position: relative; z-index: 2; display: block; width: min(820px, 86vw); animation: bbBob 4.8s ease-in-out infinite; }
+.bb-cloud img {
+  display: block; width: 100%; height: auto;
+  filter: drop-shadow(0 18px 0 rgba(255, 61, 139, .9)) drop-shadow(0 30px 40px rgba(0, 0, 0, .35));
+  transition: transform .5s cubic-bezier(.34, 1.8, .64, 1);
+}
+.bb-cloud:hover img { transform: scale(1.04, .96) rotate(-1deg); }
+.bb-cloud:active img { transform: scale(1.08, .9); }
+@keyframes bbBob {
+  0%, 100% { transform: translateY(0) rotate(-1.2deg); }
+  50% { transform: translateY(-16px) rotate(1.2deg); }
+}
+
+.bb-name { position: relative; z-index: 2; margin: clamp(30px, 5vh, 50px) 0 0; font-weight: 800; font-size: clamp(1.05rem, 1.6vw, 1.5rem); letter-spacing: -.01em; color: var(--text); }
+.bb-name span { color: var(--accent); margin: 0 .3em; }
+.bb-down {
+  position: relative; z-index: 2; margin-top: 14px; padding: 10px 20px; border-radius: 999px;
+  background: var(--accent); color: #fff; font-weight: 700; font-size: .9rem; text-decoration: none;
+  box-shadow: 0 6px 0 #C2185B; transition: transform .2s, box-shadow .2s;
+}
+.bb-down:hover { transform: translateY(2px); box-shadow: 0 4px 0 #C2185B; }
+.bb-down i { font-style: normal; display: inline-block; animation: bbArrow 1.4s ease-in-out infinite; }
+@keyframes bbArrow { 50% { transform: translateY(3px); } }
+
+/* bubbles rising behind the cloud */
+.bb-bubbles { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+.bb-bubbles i {
+  position: absolute; bottom: -60px; left: var(--x); width: var(--s); height: var(--s); border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, .85); background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, .5), rgba(255, 61, 139, .12) 60%, transparent 70%);
+  animation: bbRise var(--d) linear infinite; animation-delay: var(--t);
+}
+.bb-bubbles i:nth-child(3n) { border-color: rgba(255, 61, 139, .9); }
+@keyframes bbRise {
+  0% { transform: translate(0, 0) scale(.8); opacity: 0; }
+  10% { opacity: 1; }
+  50% { transform: translate(18px, -55vh) scale(1); }
+  90% { opacity: 1; }
+  100% { transform: translate(-12px, -110vh) scale(1.1); opacity: 0; }
+}
+
+@media (max-width: 760px) {
+  .bb-cloud { width: 94vw; }
+  .bb-cloud img { filter: drop-shadow(0 10px 0 rgba(255, 61, 139, .9)) drop-shadow(0 20px 30px rgba(0, 0, 0, .35)); }
+}
+@media (prefers-reduced-motion: reduce) { .bb-cloud, .bb-bubbles i, .bb-down i { animation: none; } }
+
+/* =========================================================
+   Coded cloud (js/bubble.js) instead of the scanned drawing
+   ========================================================= */
+#bbArt { display: block; }
+.bb-svg { display: block; width: 100%; height: auto; overflow: visible; }
+body #bbArt .bb-word {
+  font-family: "Modak", "Plus Jakarta Sans", sans-serif !important; font-size: 168px; letter-spacing: 2px;
+  fill: #0A1430; paint-order: stroke; stroke: #FFF4F8; stroke-width: 10px; stroke-linejoin: round;
+}
+.bb-cloud img { display: none; }
+.bb-svg { filter: drop-shadow(0 30px 40px rgba(0, 0, 0, .35)); }
+
+/* drips slowly stretch and shrink */
+.bb-drip { animation: bbDrip 3.6s ease-in-out infinite; animation-delay: var(--dl); }
+@keyframes bbDrip { 0%, 100% { transform: scaleY(.82); } 50% { transform: scaleY(1.12); } }
+
+/* droplet buddies bounce a little; eyes blink */
+.bb-buddy-in { animation: bbHop 2.6s ease-in-out infinite; animation-delay: var(--dl); transform-box: fill-box; transform-origin: 50% 100%; }
+@keyframes bbHop { 0%, 100% { transform: translateY(0) scale(1, 1); } 45% { transform: translateY(-14px) scale(.96, 1.04); } 60% { transform: translateY(0) scale(1.05, .95); } }
+.bb-eye { transform-box: fill-box; transform-origin: center; transition: transform .08s; }
+.bb-eye.blink { transform: scaleY(.1); }
+
+/* rings bob around the cloud */
+.bb-ring { animation: bbRing 4s ease-in-out infinite; animation-delay: var(--dl); }
+@keyframes bbRing { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+
+@media (prefers-reduced-motion: reduce) { .bb-drip, .bb-buddy-in, .bb-ring { animation: none; } }

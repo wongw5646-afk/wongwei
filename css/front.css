@@ -1,0 +1,148 @@
+/* =========================================================
+   HOME: cover (big PORTFOLIO + floating products) and the
+   Contents strips (js/front.js)
+   ========================================================= */
+.front-home .topbar { position: absolute; top: 0; left: 0; right: 0; z-index: 20; }
+
+/* ---------- cover ---------- */
+.pf-hero { position: relative; min-height: 100svh; display: grid; place-items: center; padding: 80px var(--edge) 70px; overflow: hidden; }
+.pf-cover { position: relative; width: min(100%, 1300px); }
+.pf-year {
+  margin: 0 0 clamp(4px, 1vw, 14px) .4%;
+  font-family: "Archivo", "Plus Jakarta Sans", sans-serif !important; font-stretch: 125%; font-weight: 800;
+  font-size: clamp(1rem, 2vw, 2rem); letter-spacing: .02em; color: var(--text);
+}
+.pf-word {
+  position: relative; z-index: 2; margin: 0; text-align: center; white-space: nowrap;
+  font-family: "Archivo", "Plus Jakarta Sans", sans-serif !important; font-stretch: 125%; font-weight: 800 !important;
+  font-size: clamp(3.2rem, 12.2vw, 11.5rem) !important; line-height: .9; letter-spacing: -.01em !important; text-transform: uppercase;
+  color: #F3F4F8;
+}
+.pf-collage { position: absolute; left: 6%; right: 6%; top: -30%; bottom: -46%; z-index: 3; pointer-events: none; }
+.pf-obj {
+  position: absolute; width: auto; transform: translate(-50%, -50%) rotate(var(--r));
+  filter: drop-shadow(0 26px 30px rgba(0, 0, 0, .45));
+  animation: pfFloat 7s ease-in-out infinite; animation-delay: var(--delay);
+  transition: translate .6s cubic-bezier(.2, .7, .2, 1);
+}
+@keyframes pfFloat {
+  0%, 100% { transform: translate(-50%, -50%) rotate(var(--r)); }
+  50% { transform: translate(-50%, calc(-50% - 14px)) rotate(calc(var(--r) + 3deg)); }
+}
+.pf-box { position: absolute; border: 1px solid rgba(255, 255, 255, .35); z-index: 3; }
+.pf-ring { position: absolute; left: 4%; top: 6%; width: 92%; height: 88%; z-index: 4; overflow: visible; }
+.pf-ring ellipse { fill: none; stroke: rgba(230, 236, 250, .65); stroke-width: .35; vector-effect: non-scaling-stroke; }
+
+.pf-meta { position: relative; z-index: 6; display: flex; justify-content: space-between; margin-top: clamp(16px, 2.6vw, 34px); }
+.pf-name, .pf-disc {
+  position: relative; margin: 0; padding-top: 14px; min-width: 24%;
+  font-family: "Archivo", "Plus Jakarta Sans", sans-serif !important; font-stretch: 125%; font-weight: 800;
+  font-size: clamp(.8rem, 1.3vw, 1.2rem); letter-spacing: .14em; text-transform: uppercase; color: var(--text);
+}
+.pf-name::before, .pf-disc::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 1px; background: rgba(255, 255, 255, .5); }
+.pf-disc { text-align: right; line-height: 1.3; }
+.pf-down {
+  position: absolute; left: 50%; bottom: 22px; translate: -50% 0; z-index: 6;
+  font-family: "DM Mono", ui-monospace, monospace !important; font-size: .72rem; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--muted); text-decoration: none;
+}
+.pf-down:hover { color: var(--accent); }
+
+/* ---------- contents strips ---------- */
+.ct-contents { position: relative; padding: clamp(70px, 10vh, 120px) calc(var(--edge) + 40px) clamp(70px, 10vh, 120px); }
+.ct-vert {
+  position: absolute; left: var(--edge); top: 50%; translate: 0 -50%; margin: 0;
+  writing-mode: vertical-rl; transform: rotate(180deg);
+  padding: 14px 6px; background: rgba(134, 221, 185, .35);
+  font-family: "DM Mono", ui-monospace, monospace !important; font-weight: 500 !important; font-size: .8rem !important; letter-spacing: .4em; text-transform: uppercase; color: var(--text);
+}
+.ct-plus { position: absolute; font-size: 1.4rem; font-weight: 300; line-height: 1; }
+.ct-plus.p1 { left: calc(var(--edge) + 4px); top: 40px; color: #86DDB9; }
+.ct-plus.p2 { right: var(--edge); top: 40px; color: #93A9F0; }
+.ct-plus.p3 { left: calc(var(--edge) + 4px); bottom: 40px; color: var(--text); }
+.ct-plus.p4 { right: var(--edge); bottom: 40px; color: #F59A9A; }
+
+.ct-row { display: grid; grid-template-columns: repeat(6, 1fr); gap: clamp(10px, 1.8vw, 28px); align-items: start; }
+.ct-item { display: flex; flex-direction: column; text-decoration: none; color: var(--text); }
+.ct-item.down { margin-top: clamp(40px, 9vh, 96px); }
+.ct-strip {
+  position: relative; display: block; aspect-ratio: 3 / 7.4; overflow: hidden; background: var(--c);
+  box-shadow: 0 0 0 4px #F3F4F8;
+}
+.ct-strip img {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  filter: grayscale(1) contrast(1.05) brightness(1.08); mix-blend-mode: multiply;
+  transition: filter .6s ease, transform .9s cubic-bezier(.2, .7, .2, 1), mix-blend-mode .6s;
+}
+.ct-strip::after { content: ""; position: absolute; inset: 0; background: rgba(255, 255, 255, .14); pointer-events: none; transition: opacity .5s; }
+.ct-item:hover .ct-strip img, .ct-item:focus-visible .ct-strip img { filter: none; mix-blend-mode: normal; transform: scale(1.05); }
+.ct-item:hover .ct-strip::after { opacity: 0; }
+
+.ct-label { display: flex; align-items: flex-end; gap: 10px; padding: 12px 0; }
+.ct-item.up .ct-label { justify-content: flex-end; }
+.ct-item.down .ct-label { justify-content: flex-start; flex-direction: row-reverse; justify-content: flex-end; }
+.ct-name { font-weight: 700; font-size: clamp(.78rem, 1.05vw, 1.05rem); letter-spacing: .14em; text-transform: uppercase; line-height: 1.15; }
+.ct-bar { align-self: stretch; width: 1px; background: rgba(255, 255, 255, .45); }
+.ct-num {
+  writing-mode: vertical-rl; font-weight: 800 !important; font-size: clamp(2rem, 3.6vw, 3.6rem); line-height: .8;
+  letter-spacing: -.02em; color: var(--c);
+}
+.ct-item.down .ct-num { transform: rotate(180deg); }
+
+/* ---------- phones ---------- */
+@media (max-width: 760px) {
+  .pf-collage { left: 0; right: 0; top: -60%; bottom: -70%; }
+  .pf-meta { margin-top: 26px; }
+  .ct-contents { padding-left: calc(var(--edge) + 34px); padding-right: var(--edge); }
+  .ct-row { grid-template-columns: repeat(2, 1fr); gap: 18px 14px; }
+  .ct-item.down { margin-top: 40px; }
+  .ct-strip { aspect-ratio: 3 / 5; }
+}
+@media (prefers-reduced-motion: reduce) { .pf-obj { animation: none; } }
+
+/* keep the Contact page's label styles (also called .ct-label) out of the strips */
+.ct-contents .ct-label::before, .ct-contents .ct-label::after { content: none !important; display: none !important; }
+.ct-contents .ct-label { font-size: inherit; letter-spacing: normal; text-transform: none; color: inherit; margin: 0; }
+.ct-contents { padding-left: calc(var(--edge) + 64px); }
+.ct-vert { left: calc(var(--edge) + 4px); }
+@media (max-width: 760px) { .ct-contents { padding-left: calc(var(--edge) + 44px); } }
+@media (max-width: 760px) {
+  .pf-word { font-size: 9vw !important; }
+  .pf-name, .pf-disc { font-size: .62rem; letter-spacing: .1em; min-width: 40%; }
+  .pf-collage { top: -170%; bottom: -170%; left: 4%; right: 4%; }
+  .pf-hero { padding-top: 120px; }
+}
+
+/* contents: 4 projects, real colours (no tint), thicker white frames */
+.ct-row { grid-template-columns: repeat(4, 1fr) !important; gap: clamp(18px, 3vw, 48px) !important; max-width: 1200px; margin: 0 auto; }
+.ct-strip { background: #fff; box-shadow: 0 0 0 9px #F3F4F8; aspect-ratio: 3 / 5.4; }
+.ct-strip img { filter: none !important; mix-blend-mode: normal !important; }
+.ct-strip::after { display: none; }
+.ct-item:hover .ct-strip img { transform: scale(1.05); }
+.ct-num { color: var(--text) !important; }
+.ct-item:hover .ct-num { color: var(--accent) !important; }
+.ct-label { padding: 18px 0; }
+@media (max-width: 760px) {
+  .ct-row { grid-template-columns: repeat(2, 1fr) !important; }
+  .ct-strip { box-shadow: 0 0 0 6px #F3F4F8; }
+  .pf-collage { top: -95%; bottom: -95%; }
+}
+
+/* cover without the floating objects: just the year, PORTFOLIO, name and discipline */
+.pf-collage { display: none !important; }
+
+/* Saturn-style rings around PORTFOLIO (the objects and boxes stay hidden) */
+.pf-collage { display: block !important; }
+.pf-obj, .pf-box { display: none !important; }
+.pf-ring { left: -4%; top: 2%; width: 108%; height: 96%; z-index: 1; animation: pfRing 14s ease-in-out infinite; transform-origin: 50% 50%; }
+.pf-ring ellipse { stroke: rgba(230, 236, 250, .8); stroke-width: 1.2; }
+.pf-ring ellipse.r2 { stroke: var(--accent); stroke-width: 1; opacity: .85; }
+@keyframes pfRing { 0%, 100% { rotate: 0deg; scale: 1; } 50% { rotate: 3deg; scale: 1.02; } }
+@media (prefers-reduced-motion: reduce) { .pf-ring { animation: none; } }
+
+/* Dugong strip: show the whole puzzle (zoomed out) on its own wall colour */
+.ct-zoomout .ct-strip { background: #D9D6D1; }
+.ct-zoomout .ct-strip img { object-fit: contain; transform: scale(.98); }
+.ct-zoomout:hover .ct-strip img { transform: scale(1.03); }
+.ct-zoomout .ct-strip img { transform: scale(1.5); }
+.ct-zoomout:hover .ct-strip img { transform: scale(1.58); }

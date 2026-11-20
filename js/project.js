@@ -35,7 +35,7 @@
     '<path d="M15 16 C 6 16, 4 9, 5 6 C 11 6, 15 10, 15 16z" fill="#1B1B1D"/>' +
     '<path d="M15 14 C 22 14, 26 8, 25 4 C 19 4, 15 8, 15 14z" fill="#1B1B1D"/></svg>';
   var star =
-    '<svg viewBox="0 0 30 30" aria-hidden="true"><path d="M15 1 L18 9 L26 6 L23 14 L29 18 L21 20 L22 28 L15 23 L8 28 L9 20 L1 18 L7 14 L4 6 L12 9Z" fill="#F5873A"/></svg>';
+    '<svg viewBox="0 0 30 30" aria-hidden="true"><path d="M15 1 L18 9 L26 6 L23 14 L29 18 L21 20 L22 28 L15 23 L8 28 L9 20 L1 18 L7 14 L4 6 L12 9Z" fill="#FF3D8B"/></svg>';
   // the little grey blob that walks along the path
   var WALKER =
     '<svg viewBox="0 0 60 52"><path d="M6 30 C 4 12, 22 2, 34 4 C 50 6, 58 20, 54 36 C 52 46, 44 50, 30 50 C 14 50, 7 42, 6 30Z" fill="#9A9DA4"/>' +

@@ -7,10 +7,11 @@
   <meta name="description" content="Vessel: a paper lantern for modern homes, by Wei Yi Wong.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400..700&family=Nunito:ital,wght@0,400..800;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400..700&family=Nunito:ital,wght@0,400..800;1,400&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Geist:wght@300..800&family=Geist+Mono:wght@400..600&family=Plus+Jakarta+Sans:wght@300..800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/monument.css">
 </head>
-<body class="case vessel-page">
+<body class="case vessel-page" data-mono="images-web/vessel/vs-hero-lit.webp">
   <a class="skip-link" href="#overview">Skip to the project</a>
 
   <!-- ============ HERO ============ -->
@@ -92,7 +93,7 @@
 
       <div class="vs-note">
         <p class="vs-kicker">Finding a better approach</p>
-        <p>I have decided to create an idea based on the tooth fairy, a childhood memory in which a fairy places money under a child’s bed in exchange for a tooth.</p>
+        <p>The Bristol models felt stiff and closed, so the light stayed trapped inside and the shapes looked heavy. I went back to folding paper by hand and tried open frames folded around a diamond, which let light pass through the gaps and cast patterns onto the wall.</p>
       </div>
 
       <div class="case-paper vs-big">
@@ -104,12 +105,18 @@
     <!-- ============ 04 FINAL MODEL ============ -->
     <section class="case-section" aria-labelledby="h-final">
       <h2 class="case-h" id="h-final"><span class="num">04</span><span class="eat">Final Model</span></h2>
+      <div class="vs-note">
+        <p class="vs-kicker">How I built it</p>
+        <p>For the final model I repeated the folded paper frames all the way around and joined them into one hanging shade, with a light placed in the centre so it glows from inside. The light shines through the paper and spills out between the folds, giving the soft, warm mood I wanted for a home.</p>
+      </div>
+      <div class="vs-endrow">
       <div class="case-paper vs-pair vs-finals">
         <button class="zoom" type="button" data-cap="Final model, lit from inside"><img src="images-web/vessel/vs-final-1.jpg" alt="Final paper model of Vessel glowing from inside, its grey bands crossing over white panels" loading="lazy"></button>
         <button class="zoom" type="button" data-cap="Final model hanging against a grey wall"><img src="images-web/vessel/vs-final-2.jpg" alt="Final Vessel model hanging on its cord in front of a grey background" loading="lazy"></button>
       </div>
 
       <button class="zoom photo vs-render" type="button" data-cap="Render: Vessel hanging over a table, casting light on the wall"><img src="images-web/vessel/vs-render.jpg" alt="Render of the Vessel pendant lit from inside, hanging above a round table with a vase, casting soft patterns on the wall" loading="lazy"></button>
+      </div>
     </section>
 
     <nav class="case-end" aria-label="More projects">
@@ -134,5 +141,6 @@
   <script src="js/layout.js"></script>
   <script src="js/editor.js"></script>
   <script src="js/nav.js"></script>
+  <script src="js/monument.js"></script>
 </body>
 </html>

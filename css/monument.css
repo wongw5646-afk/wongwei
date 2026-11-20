@@ -1,0 +1,173 @@
+/* =========================================================
+   "Monument" style for the project pages (js/monument.js):
+   giant word across the page, product floating in front,
+   giant section words that slide as you scroll.
+   ========================================================= */
+
+/* ---------- hero ---------- */
+.mono .case-hero { position: relative; min-height: 100svh; height: 100svh; overflow: hidden; background: var(--bg); }
+.mono .case-hero-img, .mono .case-hero::after, .mono .case-sub { display: none !important; }
+.mono .case-title, .mono-hidden-h {
+  position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; margin: 0; padding: 0;
+}
+.mono-stage { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+.mono .case-hero .topbar { z-index: 5; }
+
+.mono-word {
+  position: absolute; left: .75%; bottom: 15vh; white-space: nowrap;
+  font-family: "Space Grotesk", system-ui, sans-serif; font-weight: 700; line-height: .78; letter-spacing: -.065em;
+  color: var(--text); will-change: transform;
+}
+.mono-product {
+  position: absolute; left: 60%; top: 50%; height: min(60vh, 48vw); width: auto; max-width: 62vw;
+  transform: translate(-50%, -50%) rotate(-4deg); will-change: transform;
+  filter: drop-shadow(0 34px 40px rgba(0, 0, 0, .45));
+  animation: monoFloat 6s ease-in-out infinite;
+}
+@keyframes monoFloat { 0%, 100% { translate: 0 0; } 50% { translate: 0 -14px; } }
+
+.mono-info {
+  position: absolute; left: var(--edge); top: 24vh; width: min(270px, 28vw);
+  font-family: "Inter", system-ui, sans-serif; font-size: .82rem; line-height: 1.55; color: var(--muted);
+}
+.mono-num { display: block; margin-bottom: 10px; font-family: "JetBrains Mono", ui-monospace, monospace; font-size: .8rem; letter-spacing: .14em; color: var(--accent); }
+.mono-info p { margin: 0; }
+.mono-scroll {
+  position: absolute; right: var(--edge); top: 24vh;
+  font-family: "JetBrains Mono", ui-monospace, monospace; font-size: .7rem; letter-spacing: .24em; text-transform: uppercase; color: var(--muted);
+}
+.mono-scroll::after { content: ""; display: block; width: 1px; height: 48px; margin: 10px auto 0; background: var(--muted); animation: monoLine 1.8s ease-in-out infinite; transform-origin: top; }
+@keyframes monoLine { 0% { scale: 1 0; } 50% { scale: 1 1; } 100% { scale: 1 0; transform-origin: bottom; } }
+
+/* ---------- giant section words ---------- */
+.mono-band { position: relative; overflow: hidden; padding: clamp(50px, 9vh, 110px) 0 clamp(16px, 3vh, 40px); }
+.mono-band-num {
+  display: block; padding: 0 var(--edge); margin-bottom: 8px;
+  font-family: "JetBrains Mono", ui-monospace, monospace; font-size: .8rem; letter-spacing: .16em; color: var(--accent);
+}
+.mono-band-word {
+  display: inline-block; white-space: nowrap; will-change: transform;
+  font-family: "Space Grotesk", system-ui, sans-serif; font-weight: 700; line-height: .82; letter-spacing: -.06em;
+  font-size: clamp(5rem, 15vw, 16rem); color: var(--text);
+}
+.mono .case-section { padding-top: clamp(10px, 2vh, 24px); }
+
+/* ---------- pictures fade up into view ---------- */
+.mono-rise { opacity: 0; translate: 0 46px; transition: opacity .9s ease, translate .9s cubic-bezier(.2, .7, .2, 1); }
+.mono-rise.in { opacity: 1; translate: 0 0; }
+
+/* ---------- phones ---------- */
+@media (max-width: 760px) {
+  .mono-product { left: 50%; top: 46%; height: 44vh; max-width: 86vw; }
+  .mono-word { bottom: 15vh; }
+  .mono-info { top: auto; bottom: 4vh; width: auto; right: var(--edge); }
+  .mono-scroll { display: none; }
+  .mono-band-word { font-size: 24vw; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mono-product, .mono-scroll::after { animation: none; }
+  .mono-rise { opacity: 1; translate: none; }
+}
+
+/* FIFI: the word is short, so the model sits to its right instead of covering it */
+.fifi-page .mono-product { left: 71%; height: min(54vh, 42vw); }
+@media (max-width: 760px) { .fifi-page .mono-product { left: 58%; height: 36vh; } }
+
+/* Vessel: the final lamp is tall and thin, so it hangs taller and sits a little to the right */
+.vessel-page .mono-product { height: min(84vh, 70vw); top: 47%; left: 63%; }
+@media (max-width: 760px) { .vessel-page .mono-product { height: 58vh; left: 50%; top: 42%; } }
+
+/* section headings in hot pink */
+.mono-band-word { color: var(--accent); }
+
+/* ---------- skill pages (cad-renders.html, photoshop.html) ---------- */
+.sk-main { padding: clamp(110px, 16vh, 170px) 0 clamp(60px, 10vh, 120px); }
+.sk-head { padding: 0 0 clamp(30px, 5vh, 60px); }
+.sk-kicker { padding: 0 var(--edge); margin: 0 0 10px; font-family: "JetBrains Mono", ui-monospace, monospace; font-size: .78rem; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); }
+.sk-kicker span { color: var(--muted); margin-left: 14px; }
+.sk-title-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.sk-band { overflow: hidden; padding: 0 var(--edge); }
+.sk-word {
+  display: inline-block; white-space: nowrap; will-change: transform;
+  font-family: "Space Grotesk", system-ui, sans-serif; font-weight: 700; line-height: .85; letter-spacing: -.06em;
+  font-size: clamp(5rem, 17vw, 18rem); color: var(--accent);
+}
+.sk-tag { padding: 0 var(--edge); margin: 18px 0 0; max-width: 36em; font-family: "Inter", system-ui, sans-serif; color: var(--muted); }
+.sk-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(16px, 2.4vw, 36px); padding: 0 var(--edge); }
+.sk-item { position: relative; display: block; padding: 0; border: 0; background: none; cursor: zoom-in; text-align: left; }
+.sk-item.wide { grid-column: 1 / -1; }
+.sk-item img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 10px; background: #fff; }
+.sk-item.wide img { aspect-ratio: auto; object-fit: contain; }
+.sk-cap { display: block; margin-top: 10px; font-family: "JetBrains Mono", ui-monospace, monospace; font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.sk-item:hover img { filter: brightness(1.05); }
+.sk-empty { padding: 0 var(--edge); font-family: "JetBrains Mono", ui-monospace, monospace; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+@media (max-width: 700px) { .sk-grid { grid-template-columns: 1fr; } .sk-word { font-size: 26vw; } }
+
+/* "Skills" section in the Projects drop-down */
+.nm-label { display: block; margin: 8px 12px 4px; padding-top: 10px; border-top: 1px solid var(--line); font-family: "JetBrains Mono", ui-monospace, monospace; font-size: .66rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
+.nm-initials { display: grid; place-items: center; background: var(--accent) !important; color: #fff; font-family: "Space Grotesk", system-ui, sans-serif; font-weight: 700; font-size: 1.05rem; }
+
+/* skill galleries: pictures keep their own shape, laid out in two staggered columns */
+.sk-grid { display: block; columns: 2; column-gap: clamp(16px, 2.4vw, 36px); }
+.sk-item { break-inside: avoid; width: 100%; margin: 0 0 clamp(22px, 3vw, 44px); }
+.sk-item img { aspect-ratio: auto; object-fit: contain; background: #000; }
+.sk-label {
+  column-span: all; margin: clamp(30px, 6vh, 70px) 0 clamp(16px, 2.4vw, 30px); padding-top: 18px; border-top: 1px solid var(--line);
+  font-family: "JetBrains Mono", ui-monospace, monospace !important; font-weight: 500 !important; font-size: .78rem; letter-spacing: .2em; text-transform: uppercase; color: var(--accent);
+}
+@media (max-width: 700px) { .sk-grid { columns: 1; } }
+
+/* skill galleries: every picture the same size (equal tiles, picture fills the tile) */
+.sk-grid { display: grid !important; columns: auto; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2vw, 30px); }
+.sk-item, .sk-item.wide { grid-column: auto; margin: 0; }
+.sk-item img, .sk-item.wide img { aspect-ratio: 4 / 3; object-fit: cover; background: #000; }
+.sk-label { grid-column: 1 / -1; margin: clamp(20px, 4vh, 50px) 0 0; }
+@media (max-width: 1000px) { .sk-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .sk-grid { grid-template-columns: 1fr; } }
+
+/* bigger tiles, 2 across, whole picture shown (no cropping); the space around it takes the picture's own background colour */
+.sk-grid { grid-template-columns: repeat(2, 1fr) !important; gap: clamp(20px, 2.6vw, 40px) !important; }
+.sk-item img, .sk-item.wide img { aspect-ratio: 4 / 3; object-fit: contain !important; background: var(--tile, #000); }
+@media (max-width: 700px) { .sk-grid { grid-template-columns: 1fr !important; } }
+
+/* a tile with a second picture that fades in on hover (the toy car -> exploded view) */
+.sk-item .sk-hover { position: absolute; top: 0; left: 0; width: 100%; opacity: 0; transition: opacity .45s ease; pointer-events: none; }
+.sk-item.has-hover:hover .sk-hover, .sk-item.has-hover:focus-visible .sk-hover { opacity: 1; }
+
+/* no captions under the gallery pictures (they still show in the big viewer) */
+.sk-cap { display: none; }
+
+/* smoother car hover: a slow crossfade (one picture melts into the other) with a gentle zoom */
+.sk-item.has-hover > img:first-child, .sk-item .sk-hover {
+  transition: opacity .9s cubic-bezier(.45, 0, .2, 1), transform 1.2s cubic-bezier(.2, .7, .2, 1);
+  will-change: opacity, transform; backface-visibility: hidden;
+}
+.sk-item .sk-hover { transform: scale(1.03); }
+.sk-item.has-hover:hover > img:first-child, .sk-item.has-hover:focus-visible > img:first-child { opacity: 0; transform: scale(.98); }
+.sk-item.has-hover:hover .sk-hover, .sk-item.has-hover:focus-visible .sk-hover { opacity: 1; transform: scale(1); }
+.sk-item.has-hover:hover img { filter: none; }
+.sk-item.has-hover { overflow: hidden; border-radius: 10px; }
+
+/* no small line under the big skill heading */
+.sk-tag { display: none; }
+
+/* sliding section headings a little smaller */
+.mono-band-word { font-size: clamp(3.6rem, 10.5vw, 11.5rem) !important; }
+.sk-word { font-size: clamp(3.6rem, 12vw, 13rem) !important; }
+.mono-band { padding-top: clamp(40px, 7vh, 90px); }
+@media (max-width: 760px) { .mono-band-word { font-size: 17vw !important; } .sk-word { font-size: 19vw !important; } }
+
+/* even softer car hover: the first picture stays put while the second slowly
+   dissolves in on top (no dark dip in the middle), starting a little blurred */
+.sk-item.has-hover > img:first-child,
+.sk-item.has-hover:hover > img:first-child, .sk-item.has-hover:focus-visible > img:first-child {
+  opacity: 1 !important; transform: scale(1.0) !important;
+  transition: transform 1.6s cubic-bezier(.25, .1, .25, 1) !important;
+}
+.sk-item.has-hover:hover > img:first-child, .sk-item.has-hover:focus-visible > img:first-child { transform: scale(1.02) !important; }
+.sk-item.has-hover .sk-hover {
+  opacity: 0; filter: blur(8px); transform: scale(1.04);
+  transition: opacity 1.4s cubic-bezier(.4, 0, .2, 1), filter 1.4s cubic-bezier(.4, 0, .2, 1), transform 1.6s cubic-bezier(.25, .1, .25, 1) !important;
+}
+.sk-item.has-hover:hover .sk-hover, .sk-item.has-hover:focus-visible .sk-hover { opacity: 1; filter: blur(0); transform: scale(1); }
+@media (prefers-reduced-motion: reduce) { .sk-item.has-hover .sk-hover { filter: none; transform: none; } }

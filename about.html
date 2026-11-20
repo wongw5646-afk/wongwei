@@ -7,10 +7,11 @@
   <meta name="description" content="About Wei Yi Wong, industrial design student at Wentworth Institute of Technology.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400..700&family=Nunito:ital,wght@0,400..800;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300..800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/about.css">
 </head>
-<body class="case about-page">
+<body class="about2-page">
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="topbar">
@@ -23,88 +24,95 @@
     </nav>
   </header>
 
-  <main id="main">
-    <!-- ============ INTRO: text left, photo right ============ -->
-    <section class="ab-intro">
-      <div class="ab-intro-text">
-        <p class="ab-hi">Hi, I’m</p>
-        <h1 class="ab-name"><span class="eat">Wei Yi Wong</span></h1>
-        <p class="ab-bio">An undergraduate attending Wentworth Institute of Technology pursuing a degree in Industrial Design. I am passionate about creating innovative and functional designs that blend aesthetics with usability. I love hands-on prototyping, product development, and problem-solving.</p>
-      </div>
-      <figure class="ab-photo">
-        <span class="deco-worm w-topRight" data-len="3-4" data-cell="34" data-flat="1"></span>
+  <main id="main" class="a2">
+    <!-- LEFT PANEL: photo, hello, bio -->
+    <section class="a2-left" aria-label="About Wei Yi">
+      <figure class="a2-photo">
         <img src="images-web/about/wei-yi-2.jpg" alt="Portrait of Wei Yi Wong smiling against a white wall, wearing a black sweater">
+        <span class="a2-corner tl" aria-hidden="true"></span><span class="a2-corner tr" aria-hidden="true"></span>
+        <span class="a2-corner bl" aria-hidden="true"></span><span class="a2-corner br" aria-hidden="true"></span>
       </figure>
+      <h1 class="a2-hello">Hello!<br>I’m <span>Wei Yi.</span></h1>
+      <p class="a2-bio">An undergraduate attending Wentworth Institute of Technology pursuing a degree in Industrial Design. I am passionate about creating innovative and functional designs that blend aesthetics with usability. I love hands-on prototyping, product development, and problem-solving.</p>
     </section>
 
-    <!-- ============ EDUCATION + SKILLS (left) | EXPERIENCE (right) ============ -->
-    <section class="ab-cv">
-      <div class="ab-left">
-        <h2 class="case-h ab-h"><span class="eat">Education</span></h2>
-        <div class="ab-entry">
+    <!-- RIGHT: two columns -->
+    <section class="a2-right">
+      <div class="a2-col">
+        <h2 class="a2-h">Education.</h2>
+        <div class="a2-entry">
           <h3>Wentworth Institute of Technology</h3>
-          <p class="ab-date">2023–2028</p>
-          <p>Undergraduate</p>
+          <p class="a2-sub">Industrial Design, Undergraduate</p>
+          <p class="a2-sub">2023–2028</p>
         </div>
-        <div class="ab-entry">
+        <div class="a2-entry">
           <h3>University of Massachusetts Boston</h3>
-          <p class="ab-date">2023–2023</p>
-          <p>Undergraduate</p>
-          <p>Bachelor of Science and Math</p>
+          <p class="a2-sub">Bachelor of Science and Math, Undergraduate</p>
+          <p class="a2-sub">2023</p>
         </div>
 
-        <h2 class="case-h ab-h ab-skills-h"><span class="eat">Skills</span></h2>
-        <ul class="ab-skills">
-          <li>Modelmaking</li>
-          <li>Rhinoceros 3D</li>
-          <li>Solidworks</li>
-          <li>Adobe Illustrator</li>
-          <li>Adobe InDesign</li>
-          <li>Adobe Photoshop</li>
-          <li>Keyshot</li>
+        <h2 class="a2-h">Work Experience.</h2>
+        <div class="a2-entry">
+          <h3>Sales Associate <span class="a2-date">(April 2026 – Present)</span></h3>
+          <p class="a2-sub">Uniqlo</p>
+          <ul><li>Work with store managers and associates on customer satisfaction and consistent daily operations.</li></ul>
+        </div>
+        <div class="a2-entry">
+          <h3>Nurse Caregiver <span class="a2-date">(April 2023 – Present)</span></h3>
+          <p class="a2-sub">Trinity Church in the City of Boston</p>
+          <ul><li>Care for toddlers (ages 1–4) in a safe space, building social skills like cooperation and communication.</li></ul>
+        </div>
+        <div class="a2-entry">
+          <h3>Barista <span class="a2-date">(February 2024 – March 2026)</span></h3>
+          <p class="a2-sub">Cafe Darq</p>
+          <ul><li>Prepared complex drinks in a high-volume setting and mentored new hires.</li></ul>
+        </div>
+        <h2 class="a2-h">Design Experience.</h2>
+        <div class="a2-entry">
+          <h3>Student Learner <span class="a2-date">(June – August 2023)</span></h3>
+          <p class="a2-sub">Digital Ready Architecture Studio</p>
+          <ul>
+            <li>Led a team of teens (ages 16–20) through college-level design coursework to model, diagram, and build an architectural kiosk prototype.</li>
+            <li>Pitched and presented the final structure to college professors.</li>
+          </ul>
+        </div>
+        <div class="a2-entry">
+          <h3>Formlabs Project <span class="a2-date">(April – June 2022)</span></h3>
+          <p class="a2-sub">TechBoston Academy</p>
+          <ul>
+            <li>Managed a multidisciplinary team taking a product from first design to a working physical prototype.</li>
+            <li>Combined 3D CAD modeling and code into a structurally functional design.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="a2-col">
+        <h2 class="a2-h">Skill.</h2>
+        <div class="a2-skills">
+          <div>
+            <h3>Software</h3>
+            <p class="a2-sub">Modeling / Rendering</p>
+            <ul><li>Rhinoceros 3D</li><li>SolidWorks</li><li>KeyShot</li></ul>
+            <p class="a2-sub a2-gap">Graphic Design</p>
+            <ul><li>Adobe Photoshop</li><li>Adobe Illustrator</li><li>Adobe InDesign</li></ul>
+          </div>
+          <div>
+            <h3>Hard Skills</h3>
+            <ul><li>Modelmaking</li><li>Prototyping</li><li>Product development</li><li>Problem-solving</li></ul>
+          </div>
+        </div>
+
+        <h2 class="a2-h">Contact.</h2>
+        <ul class="a2-contact">
+          <li><span class="a2-ico" aria-hidden="true">✆</span><div><h3><a href="tel:+16179824892">617-982-4892</a></h3><p class="a2-sub">Phone</p></div></li>
+          <li><span class="a2-ico" aria-hidden="true">✉</span><div><h3><a href="mailto:w.ong.w.5646@gmail.com">w.ong.w.5646@gmail.com</a></h3><p class="a2-sub">Email</p></div></li>
+          <li><span class="a2-ico" aria-hidden="true">in</span><div><h3><a class="a2-stretch" href="https://www.linkedin.com/in/wei-yi-wong-88095b336" target="_blank" rel="noopener">wei-yi-wong</a></h3><p class="a2-sub">LinkedIn</p></div></li>
+          <li><span class="a2-ico" aria-hidden="true">↓</span><div><h3><a class="a2-stretch" href="files/Wei-Yi-Wong-Resume.pdf" download>Download (PDF)</a></h3><p class="a2-sub">Résumé</p></div></li>
         </ul>
       </div>
-
-      <div class="ab-right">
-        <h2 class="case-h ab-h"><span class="eat">Experience</span></h2>
-        <div class="ab-entry">
-          <h3>Digital Ready Architecture Studio / Student Learner</h3>
-          <p class="ab-date">June 2023 – August 2023</p>
-          <p>Led a diverse team of teens (ages 16–20) through immersive college-level design coursework to model, diagram, and build a sturdy architectural kiosk prototype. Collaborated across competitive studio teams to successfully pitch and present our final structure to college professors.</p>
-        </div>
-        <div class="ab-entry">
-          <h3>Formlabs Project / TechBoston Academy</h3>
-          <p class="ab-date">April 2022 – June 2022</p>
-          <p>Managed a creative, multidisciplinary team in a studio competition to take a product from initial design to a physical working prototype. Integrated 3D CAD modeling and code to deliver a structurally functional design to the class.</p>
-        </div>
-        <div class="ab-entry">
-          <h3>Sales Associate / Uniqlo</h3>
-          <p class="ab-date">April 2026 – Present</p>
-          <p>Collaborate closely with store managers and sales associates to guarantee customer satisfaction and sustain both regularity and consistency in operational tasks required for the fulfillment of daily goals.</p>
-        </div>
-        <div class="ab-entry">
-          <h3>Nurse Caregiver / Trinity Church in the City of Boston</h3>
-          <p class="ab-date">April 2023 – Present</p>
-          <p>Maintained a secure space for toddlers (ages 1–4), providing attentive personal care while promoting key social skills like cooperation and active communication. Supported early childhood development through positive reinforcement and structured daily routines.</p>
-        </div>
-        <div class="ab-entry">
-          <h3>Barista / Cafe Darq</h3>
-          <p class="ab-date">February 2024 – March 2026</p>
-          <p>Mastered complex drink preparation in a high-volume setting while driving operational efficiency, resolving customer needs, and mentoring new hires to uphold high service standards.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ CONTACT ============ -->
-    <section class="ab-contact" aria-label="Contact">
-      <p>Boston, MA <span aria-hidden="true">|</span> <a href="tel:+16179824892">617-982-4892</a> <span aria-hidden="true">|</span> <a href="mailto:w.ong.w.5646@gmail.com">w.ong.w.5646@gmail.com</a></p>
-      <p><a href="https://www.linkedin.com/in/wei-yi-wong-88095b336">www.linkedin.com/in/wei-yi-wong-88095b336</a></p>
     </section>
   </main>
 
-  <script src="js/worm-deco.js"></script>
-  <script src="js/layout.js"></script>
-  <script src="js/editor.js"></script>
   <script src="js/projects.js"></script>
   <script src="js/nav.js"></script>
 </body>
